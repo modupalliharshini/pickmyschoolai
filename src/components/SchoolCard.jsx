@@ -24,7 +24,7 @@ const SchoolCard = ({ s }) => {
         >
           <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${liked ? 'fill-[#7C1A1A] text-[#7C1A1A]' : 'text-stone-400'}`} />
         </button>
-        <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 bg-stone-900/90 backdrop-blur-md text-white rounded-lg sm:rounded-xl px-2 py-0.5 sm:px-2.5 sm:py-1 flex items-center gap-1 z-10">
+        <div className="absolute bottom-1.5 right-1.5 sm:bottom-4 sm:right-4 bg-stone-900/90 backdrop-blur-md text-white rounded-lg sm:rounded-xl px-1.5 py-0.5 sm:px-2.5 sm:py-1 flex items-center gap-1 z-10 scale-90 sm:scale-100">
           <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-yellow-400 text-yellow-400" />
           <span className="text-[10px] sm:text-[12px] font-bold">{s.rating}</span>
         </div>
