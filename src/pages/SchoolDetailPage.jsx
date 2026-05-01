@@ -8,7 +8,21 @@ import { useModal } from '../context/ModalContext';
 const SchoolDetailPage = () => {
   const { id } = useParams();
   const school = schools.find((s) => s.id === parseInt(id)) || schools[0];
+  const [liked, setLiked] = React.useState(false);
   const { openModal } = useModal();
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: school.name,
+        text: `Check out ${school.name} on PickMySchool.AI`,
+        url: window.location.href,
+      }).catch(console.error);
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+  };
 
   return (
     <div className="bg-[#FBF7F0] min-h-screen">
@@ -27,9 +41,19 @@ const SchoolDetailPage = () => {
             <div className="bg-white rounded-[40px] overflow-hidden border border-[#F3E8E6] shadow-sm">
               <div className="aspect-[21/9] relative">
                 <SchoolIllustration />
-                <div className="absolute top-6 right-6 flex gap-3">
-                  <button className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-900 shadow-sm"><Share2 className="w-5 h-5" /></button>
-                  <button className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-900 shadow-sm"><Heart className="w-5 h-5" /></button>
+                <div className="absolute top-3 right-3 sm:top-6 sm:right-6 flex gap-2 sm:gap-3 z-10">
+                  <button 
+                    onClick={handleShare}
+                    className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-900 shadow-sm hover:bg-[#7C1A1A] hover:text-white transition-all"
+                  >
+                    <Share2 className="w-4 h-4 sm:w-5 h-5" />
+                  </button>
+                  <button 
+                    onClick={() => setLiked(!liked)}
+                    className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-sm hover:scale-110 transition-all"
+                  >
+                    <Heart className={`w-4 h-4 sm:w-5 h-5 ${liked ? 'fill-[#7C1A1A] text-[#7C1A1A]' : 'text-stone-900'}`} />
+                  </button>
                 </div>
               </div>
             </div>

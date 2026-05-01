@@ -118,50 +118,50 @@ const FindTeacherPage = () => {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-start">
+          <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-5 items-start">
             {filtered.map((t) => (
-              <div key={t.id} className="bg-white border border-[#F3E8E6] rounded-[28px] p-6 hover:shadow-[0_15px_35px_-12px_rgba(124,26,26,0.12)] transition-all duration-300 group flex flex-col">
+              <div key={t.id} className="bg-white border border-[#F3E8E6] rounded-[24px] p-3 sm:p-6 hover:shadow-[0_15px_35px_-12px_rgba(124,26,26,0.12)] transition-all duration-300 group flex flex-col">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#7C1A1A] text-white font-serif font-bold flex items-center justify-center text-lg">{initials(t.name)}</div>
-                    <div>
-                      <h3 className="font-serif text-[18px] font-bold text-stone-900 group-hover:text-[#7C1A1A] transition-colors">{t.name}</h3>
-                      <div className="flex items-center gap-1.5 text-[12px] text-stone-900 font-bold mt-0.5">
-                        <Star className="w-3.5 h-3.5 fill-[#7C1A1A] text-[#7C1A1A]" /> {t.rating} · {t.exp} yrs exp
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#7C1A1A] text-white font-serif font-bold flex items-center justify-center text-base sm:text-lg shrink-0">{initials(t.name)}</div>
+                    <div className="min-w-0">
+                      <h3 className="font-serif text-[14px] sm:text-[18px] font-bold text-stone-900 group-hover:text-[#7C1A1A] transition-colors truncate">{t.name}</h3>
+                      <div className="flex items-center gap-1.5 text-[10px] sm:text-[12px] text-stone-900 font-bold mt-0.5">
+                        <Star className="w-3 sm:w-3.5 h-3 sm:h-3.5 fill-[#7C1A1A] text-[#7C1A1A]" /> {t.rating}
                       </div>
                     </div>
                   </div>
-                  <button onClick={() => navigate(`/teacher/${t.id}`)} className="w-9 h-9 rounded-full bg-stone-50 flex items-center justify-center text-stone-400 hover:text-[#7C1A1A] hover:bg-[#FDF2F0] transition-all">
+                  <button onClick={() => navigate(`/teacher/${t.id}`)} className="hidden sm:flex w-9 h-9 rounded-full bg-stone-50 items-center justify-center text-stone-400 hover:text-[#7C1A1A] hover:bg-[#FDF2F0] transition-all shrink-0">
                     <ExternalLink className="w-4 h-4" />
                   </button>
                 </div>
                 
-                <div className="mt-5 space-y-2">
-                  <div className="flex items-center gap-2 text-stone-600 font-medium text-[13px]">
-                    <BookOpen className="w-4 h-4 text-stone-400" /> {t.subject} · {t.grade}
+                <div className="mt-4 space-y-1.5">
+                  <div className="flex items-center gap-2 text-stone-600 font-medium text-[11px] sm:text-[13px]">
+                    <BookOpen className="w-3.5 h-3.5 text-stone-400" /> <span className="truncate">{t.subject}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-stone-600 font-medium text-[13px]">
-                    <MapPin className="w-4 h-4 text-stone-400" /> {t.locality}, {t.city}
+                  <div className="flex items-center gap-2 text-stone-600 font-medium text-[11px] sm:text-[13px]">
+                    <MapPin className="w-3.5 h-3.5 text-stone-400" /> <span className="truncate">{t.locality}</span>
                   </div>
                 </div>
 
                 <div className="mt-auto">
                   <button 
                     onClick={() => navigate(`/teacher/${t.id}`)}
-                    className="mt-6 w-full text-center text-stone-400 font-bold text-[13px] hover:text-[#7C1A1A] transition-colors"
+                    className="mt-4 w-full text-center text-stone-400 font-bold text-[11px] sm:text-[13px] hover:text-[#7C1A1A] transition-colors"
                   >
                     View profile
                   </button>
-                  <div className="mt-4 pt-5 border-t border-stone-50 flex items-center justify-between">
+                  <div className="mt-3 pt-3 border-t border-stone-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1">
                     <div>
-                      <div className="text-[11px] font-bold text-stone-400 uppercase tracking-wider">Starting at</div>
-                      <div className="text-stone-900 font-bold text-[16px]">₹{t.fee}<span className="text-[12px] font-medium text-stone-400">/hr</span></div>
+                      <div className="text-[9px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-wider">From</div>
+                      <div className="text-stone-900 font-bold text-[13px] sm:text-[16px]">₹{t.fee}<span className="text-[10px] font-medium text-stone-400">/hr</span></div>
                     </div>
                     <button 
                       onClick={() => openModal('bookTrial', { teacherName: t.name })}
-                      className="bg-[#7C1A1A] hover:bg-[#651414] text-white px-5 py-2.5 rounded-xl font-bold text-[13px] transition-all flex items-center gap-1.5"
+                      className="w-full sm:w-auto bg-[#7C1A1A] text-white px-4 py-1.5 sm:py-2.5 rounded-xl font-bold text-[11px] sm:text-[14px] hover:bg-[#651414] transition-all active:scale-95 shadow-sm shadow-[#7C1A1A]/20"
                     >
-                      Book trial <ArrowRight className="w-4 h-4" />
+                      Book Trial
                     </button>
                   </div>
                 </div>
