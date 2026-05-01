@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-6 lg:gap-8 pb-16 border-b border-white/5">
           <div className="col-span-2 lg:col-span-4">
             <Link to="/" className="flex items-center gap-3 shrink-0 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-[#7C1A1A] flex items-center justify-center text-white">
+              <div className="w-10 h-10 rounded-xl bg-[#b1040e] flex items-center justify-center text-white">
                 <GraduationCap className="w-5 h-5" strokeWidth={2.4} />
               </div>
               <div className="font-serif text-[22px] font-bold tracking-tight">PickMySchool.AI</div>
@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
             <div className="mt-8 flex gap-4">
               {[Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-[#7C1A1A] hover:text-white transition-all duration-300">
+                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:bg-[#b1040e] hover:text-white transition-all duration-300">
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
@@ -54,7 +54,7 @@ const Footer = () => {
             <p className="text-white/40 text-[15px] mb-6">Join 10,000+ parents getting weekly education insights.</p>
             <div className="flex p-1 rounded-[16px] border border-white/10 bg-white/5">
               <input type="email" placeholder="Email address" className="flex-1 bg-transparent px-4 outline-none text-[14px] text-white" />
-              <button className="bg-[#7C1A1A] text-white p-2.5 rounded-[12px] hover:bg-[#651414] transition-colors">
+              <button className="bg-[#b1040e] text-white p-2.5 rounded-[12px] hover:bg-[#651414] transition-colors">
                 <ArrowRight className="w-4.5 h-4.5" />
               </button>
             </div>
@@ -70,7 +70,7 @@ const Footer = () => {
              <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Terms of Service</Link>
           </div>
           <div className="text-white/20 text-[13px] font-medium">
-            Designed by <a href="https://thepatternscompany.com/" className="text-white/40 font-bold hover:text-[#7C1A1A] transition-colors">The Patterns Company</a>
+            Designed by <a href="https://thepatternscompany.com/" className="text-white/40 font-bold hover:text-[#b1040e] transition-colors">The Patterns Company</a>
           </div>
         </div>
       </div>

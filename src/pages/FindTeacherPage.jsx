@@ -58,7 +58,7 @@ const FindTeacherPage = () => {
           step="50" 
           value={maxPrice} 
           onChange={(e) => setMaxPrice(+e.target.value)} 
-          className="w-full accent-[#7C1A1A] h-1 bg-stone-100 rounded-lg appearance-none cursor-pointer" 
+          className="w-full accent-[#b1040e] h-1 bg-stone-100 rounded-lg appearance-none cursor-pointer" 
         />
         <div className="flex justify-between text-[11px] text-stone-400 font-bold mt-2">
           <span>₹200</span>
@@ -70,7 +70,7 @@ const FindTeacherPage = () => {
         {mobile && (
           <button 
             onClick={() => setIsFilterOpen(false)}
-            className="w-full bg-[#7C1A1A] text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-[#7C1A1A]/20 transition-all"
+            className="w-full bg-[#b1040e] text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-[#b1040e]/20 transition-all"
           >
             Apply Filters
           </button>
@@ -91,7 +91,7 @@ const FindTeacherPage = () => {
         <div className="mb-8 flex justify-between items-start">
           <div>
             <h1 className="font-serif text-[40px] lg:text-[56px] font-bold text-stone-900 leading-tight">
-              Find your <span className="italic text-[#7C1A1A]">teacher.</span>
+              Find your <span className="italic text-[#b1040e]">teacher.</span>
             </h1>
             <p className="mt-3 text-stone-400 font-medium text-[16px]">Vetted tutors for every subject and grade. Online or at your home.</p>
           </div>
@@ -123,15 +123,15 @@ const FindTeacherPage = () => {
               <div key={t.id} className="bg-white border border-[#F3E8E6] rounded-[24px] p-3 sm:p-6 hover:shadow-[0_15px_35px_-12px_rgba(124,26,26,0.12)] transition-all duration-300 group flex flex-col">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#7C1A1A] text-white font-serif font-bold flex items-center justify-center text-base sm:text-lg shrink-0">{initials(t.name)}</div>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#b1040e] text-white font-serif font-bold flex items-center justify-center text-base sm:text-lg shrink-0">{initials(t.name)}</div>
                     <div className="min-w-0">
-                      <h3 className="font-serif text-[14px] sm:text-[18px] font-bold text-stone-900 group-hover:text-[#7C1A1A] transition-colors truncate">{t.name}</h3>
+                      <h3 className="font-serif text-[14px] sm:text-[18px] font-bold text-stone-900 group-hover:text-[#b1040e] transition-colors truncate">{t.name}</h3>
                       <div className="flex items-center gap-1.5 text-[10px] sm:text-[12px] text-stone-900 font-bold mt-0.5">
-                        <Star className="w-3 sm:w-3.5 h-3 sm:h-3.5 fill-[#7C1A1A] text-[#7C1A1A]" /> {t.rating}
+                        <Star className="w-3 sm:w-3.5 h-3 sm:h-3.5 fill-[#b1040e] text-[#b1040e]" /> {t.rating}
                       </div>
                     </div>
                   </div>
-                  <button onClick={() => navigate(`/teacher/${t.id}`)} className="hidden sm:flex w-9 h-9 rounded-full bg-stone-50 items-center justify-center text-stone-400 hover:text-[#7C1A1A] hover:bg-[#FDF2F0] transition-all shrink-0">
+                  <button onClick={() => navigate(`/teacher/${t.id}`)} className="hidden sm:flex w-9 h-9 rounded-full bg-stone-50 items-center justify-center text-stone-400 hover:text-[#b1040e] hover:bg-[#FDF2F0] transition-all shrink-0">
                     <ExternalLink className="w-4 h-4" />
                   </button>
                 </div>
@@ -148,7 +148,7 @@ const FindTeacherPage = () => {
                 <div className="mt-auto">
                   <button 
                     onClick={() => navigate(`/teacher/${t.id}`)}
-                    className="mt-4 w-full text-center text-stone-400 font-bold text-[11px] sm:text-[13px] hover:text-[#7C1A1A] transition-colors"
+                    className="mt-4 w-full text-center text-stone-400 font-bold text-[11px] sm:text-[13px] hover:text-[#b1040e] transition-colors"
                   >
                     View profile
                   </button>
@@ -159,7 +159,7 @@ const FindTeacherPage = () => {
                     </div>
                     <button 
                       onClick={() => openModal('bookTrial', { teacherName: t.name })}
-                      className="w-full sm:w-auto bg-[#7C1A1A] text-white px-4 py-1.5 sm:py-2.5 rounded-xl font-bold text-[11px] sm:text-[14px] hover:bg-[#651414] transition-all active:scale-95 shadow-sm shadow-[#7C1A1A]/20"
+                      className="w-full sm:w-auto bg-[#b1040e] text-white px-4 py-1.5 sm:py-2.5 rounded-xl font-bold text-[11px] sm:text-[14px] hover:bg-[#651414] transition-all active:scale-95 shadow-sm shadow-[#b1040e]/20"
                     >
                       Book Trial
                     </button>
@@ -187,7 +187,7 @@ const FilterGroup = ({ label, options, value, onChange }) => (
         <button 
           key={o} 
           onClick={() => onChange(o)} 
-          className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium border transition-all ${value === o ? 'bg-[#7C1A1A] text-white border-[#7C1A1A]' : 'bg-white border-stone-100 text-stone-500 hover:border-stone-200'}`}
+          className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium border transition-all ${value === o ? 'bg-[#b1040e] text-white border-[#b1040e]' : 'bg-white border-stone-100 text-stone-500 hover:border-stone-200'}`}
         >
           {o}
         </button>

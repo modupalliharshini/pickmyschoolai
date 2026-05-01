@@ -18,7 +18,7 @@ const TopPicks = () => {
             </h2>
             <p className="mt-2 text-stone-400 text-[15px] font-medium">Sorted by AI match score · Hyderabad</p>
           </div>
-          <Link to="/find-schools" className="hidden md:flex items-center gap-2 text-[#7C1A1A] font-bold text-[15px] hover:gap-3 transition-all duration-200">
+          <Link to="/find-schools" className="hidden md:flex items-center gap-2 text-[#b1040e] font-bold text-[15px] hover:gap-3 transition-all duration-200">
             View all 248 →
           </Link>
         </div>
@@ -29,7 +29,7 @@ const TopPicks = () => {
             <button 
               key={b} 
               onClick={() => setActiveBoard(b)}
-              className={`px-5 py-2.5 rounded-full text-[13px] font-bold transition-all duration-200 border ${activeBoard === b ? 'bg-[#7C1A1A] text-white border-[#7C1A1A]' : 'bg-white text-stone-400 border-stone-100 hover:border-stone-200'}`}
+              className={`px-5 py-2.5 rounded-full text-[13px] font-bold transition-all duration-200 border ${activeBoard === b ? 'bg-[#b1040e] text-white border-[#b1040e]' : 'bg-white text-stone-400 border-stone-100 hover:border-stone-200'}`}
             >
               {b}
             </button>
@@ -43,7 +43,7 @@ const TopPicks = () => {
         </div>
 
         <div className="mt-12 text-center md:hidden">
-          <Link to="/find-schools" className="inline-flex items-center gap-2 text-[#7C1A1A] font-bold text-[16px]">
+          <Link to="/find-schools" className="inline-flex items-center gap-2 text-[#b1040e] font-bold text-[16px]">
             View all 248 →
           </Link>
         </div>

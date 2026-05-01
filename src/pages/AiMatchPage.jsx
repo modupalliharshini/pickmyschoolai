@@ -37,8 +37,8 @@ const AiMatchPage = () => {
     return (
       <section className="bg-[#FBF7F0] min-h-screen py-16">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200"><Sparkles className="w-4 h-4 text-[#7C1A1A]" /><span className="text-[11px] tracking-[0.18em] font-semibold text-stone-700">AI MATCH COMPLETE</span></div>
-          <h1 className="mt-5 font-serif text-[48px] lg:text-[64px] font-semibold text-stone-900 leading-tight">Your <span className="italic text-[#7C1A1A]">top matches.</span></h1>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200"><Sparkles className="w-4 h-4 text-[#b1040e]" /><span className="text-[11px] tracking-[0.18em] font-semibold text-stone-700">AI MATCH COMPLETE</span></div>
+          <h1 className="mt-5 font-serif text-[48px] lg:text-[64px] font-semibold text-stone-900 leading-tight">Your <span className="italic text-[#b1040e]">top matches.</span></h1>
           <p className="text-stone-500 mt-3">Ranked 0-100 on fit for your child.</p>
 
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -46,18 +46,18 @@ const AiMatchPage = () => {
               <div key={s.id} className="bg-white rounded-2xl border border-stone-200 overflow-hidden">
                 <div className="aspect-[4/3]"><SchoolIllustration shade={s.shade} /></div>
                 <div className="p-5">
-                  <div className="flex items-center gap-2 text-[#7C1A1A] font-semibold text-[13px]"><Star className="w-3.5 h-3.5 fill-[#7C1A1A]" /> MATCH {s.score}%</div>
+                  <div className="flex items-center gap-2 text-[#b1040e] font-semibold text-[13px]"><Star className="w-3.5 h-3.5 fill-[#b1040e]" /> MATCH {s.score}%</div>
                   <h3 className="font-serif text-[19px] font-semibold mt-2 text-stone-900">{s.name}</h3>
                   <p className="text-stone-500 text-[13px] mt-1">{s.location}</p>
                   <div className="mt-3 flex items-center justify-between">
                     <span className="text-[13px] text-stone-900 font-semibold">{s.fee}/yr</span>
-                    <a href="#apply" className="text-[#7C1A1A] font-medium text-[13px] hover:underline">Apply →</a>
+                    <a href="#apply" className="text-[#b1040e] font-medium text-[13px] hover:underline">Apply →</a>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <button onClick={() => { setDone(false); setStep(0); setAnswers({}); }} className="mt-10 text-[#7C1A1A] font-medium hover:underline">← Retake the quiz</button>
+          <button onClick={() => { setDone(false); setStep(0); setAnswers({}); }} className="mt-10 text-[#b1040e] font-medium hover:underline">← Retake the quiz</button>
         </div>
       </section>
     );
@@ -68,11 +68,11 @@ const AiMatchPage = () => {
       <div className="max-w-[900px] mx-auto px-6">
         <div className="text-center">
           <h1 className="font-serif text-[44px] lg:text-[60px] font-semibold text-stone-900 leading-tight">
-            Tell us about your child <span className="italic text-[#7C1A1A]">in 60 seconds.</span>
+            Tell us about your child <span className="italic text-[#b1040e]">in 60 seconds.</span>
           </h1>
           <div className="mt-10 flex justify-center gap-2">
             {steps.map((_, i) => (
-              <div key={i} className={`h-1.5 w-16 rounded-full transition-colors ${i <= step ? 'bg-[#7C1A1A]' : 'bg-stone-200'}`} />
+              <div key={i} className={`h-1.5 w-16 rounded-full transition-colors ${i <= step ? 'bg-[#b1040e]' : 'bg-stone-200'}`} />
             ))}
           </div>
         </div>
@@ -83,7 +83,7 @@ const AiMatchPage = () => {
 
           <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-3">
             {current.options.map((opt) => (
-              <button key={opt} onClick={() => choose(opt)} className={`py-4 px-5 rounded-xl border-2 font-medium transition-all text-[14.5px] ${isSelected(opt) ? 'border-[#7C1A1A] bg-[#7C1A1A]/5 text-[#7C1A1A]' : 'border-stone-200 text-stone-800 hover:border-stone-400'}`}>
+              <button key={opt} onClick={() => choose(opt)} className={`py-4 px-5 rounded-xl border-2 font-medium transition-all text-[14.5px] ${isSelected(opt) ? 'border-[#b1040e] bg-[#b1040e]/5 text-[#b1040e]' : 'border-stone-200 text-stone-800 hover:border-stone-400'}`}>
                 {opt}
               </button>
             ))}
@@ -94,11 +94,11 @@ const AiMatchPage = () => {
               <ArrowLeft className="w-4 h-4" /> Back
             </button>
             {step < steps.length - 1 ? (
-              <button onClick={() => setStep(step + 1)} className="inline-flex items-center gap-2 bg-[#7C1A1A] hover:bg-[#651414] text-white px-6 py-3 rounded-xl font-medium transition-colors">
+              <button onClick={() => setStep(step + 1)} className="inline-flex items-center gap-2 bg-[#b1040e] hover:bg-[#651414] text-white px-6 py-3 rounded-xl font-medium transition-colors">
                 Next <ArrowRight className="w-4 h-4" />
               </button>
             ) : (
-              <button onClick={() => setDone(true)} className="inline-flex items-center gap-2 bg-[#7C1A1A] hover:bg-[#651414] text-white px-6 py-3 rounded-xl font-medium transition-colors">
+              <button onClick={() => setDone(true)} className="inline-flex items-center gap-2 bg-[#b1040e] hover:bg-[#651414] text-white px-6 py-3 rounded-xl font-medium transition-colors">
                 Find my matches <Sparkles className="w-4 h-4" />
               </button>
             )}

@@ -54,7 +54,7 @@ const FindSchoolsPage = () => {
             <button 
               key={c} 
               onClick={() => setCity(c)} 
-              className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium border transition-all ${city === c ? 'bg-[#7C1A1A] text-white border-[#7C1A1A]' : 'bg-white border-stone-100 text-stone-500 hover:border-stone-200'}`}
+              className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium border transition-all ${city === c ? 'bg-[#b1040e] text-white border-[#b1040e]' : 'bg-white border-stone-100 text-stone-500 hover:border-stone-200'}`}
             >
               {c}
             </button>
@@ -69,7 +69,7 @@ const FindSchoolsPage = () => {
             <button 
               key={b} 
               onClick={() => setBoard(b)} 
-              className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium border transition-all ${board === b ? 'bg-[#7C1A1A] text-white border-[#7C1A1A]' : 'bg-white border-stone-100 text-stone-500 hover:border-stone-200'}`}
+              className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium border transition-all ${board === b ? 'bg-[#b1040e] text-white border-[#b1040e]' : 'bg-white border-stone-100 text-stone-500 hover:border-stone-200'}`}
             >
               {b}
             </button>
@@ -89,7 +89,7 @@ const FindSchoolsPage = () => {
           step="0.5" 
           value={maxFee} 
           onChange={(e) => setMaxFee(parseFloat(e.target.value))} 
-          className="w-full accent-[#7C1A1A] h-1 bg-stone-100 rounded-lg appearance-none cursor-pointer" 
+          className="w-full accent-[#b1040e] h-1 bg-stone-100 rounded-lg appearance-none cursor-pointer" 
         />
         <div className="flex justify-between text-[11px] text-stone-400 font-bold mt-2">
           <span>₹0.5L</span>
@@ -101,7 +101,7 @@ const FindSchoolsPage = () => {
         {mobile && (
           <button 
             onClick={() => setIsFilterOpen(false)}
-            className="w-full bg-[#7C1A1A] text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-[#7C1A1A]/20 transition-all"
+            className="w-full bg-[#b1040e] text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-[#b1040e]/20 transition-all"
           >
             Apply Filters
           </button>
@@ -123,7 +123,7 @@ const FindSchoolsPage = () => {
           <div className="w-full flex justify-between items-start">
             <div>
               <h1 className="font-serif text-[40px] lg:text-[56px] font-bold text-stone-900 leading-none">
-                Schools in <span className="italic text-[#7C1A1A]">India</span>
+                Schools in <span className="italic text-[#b1040e]">India</span>
               </h1>
               <p className="text-stone-400 font-medium mt-3 text-[16px]">{filtered.length} schools · sorted by AI match score</p>
             </div>
@@ -140,7 +140,7 @@ const FindSchoolsPage = () => {
               value={query} 
               onChange={(e) => setQuery(e.target.value)} 
               placeholder="Search by name or locality" 
-              className="w-full bg-[#FBF7F0] border border-[#F3E8E6] rounded-full pl-11 pr-6 py-3.5 text-[15px] outline-none focus:border-[#7C1A1A] transition-colors" 
+              className="w-full bg-[#FBF7F0] border border-[#F3E8E6] rounded-full pl-11 pr-6 py-3.5 text-[15px] outline-none focus:border-[#b1040e] transition-colors" 
             />
           </div>
         </div>

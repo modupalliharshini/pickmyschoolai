@@ -52,8 +52,8 @@ export const AuthModals = () => {
               <Label className="text-stone-500 font-bold text-[12px] uppercase tracking-wider">Password</Label>
               <Input type="password" required value={form.password || ''} onChange={(e) => set('password', e.target.value)} placeholder="••••••••" className="h-11 rounded-xl bg-stone-50 border-stone-100 text-[14px]" />
             </div>
-            <button type="submit" className="w-full bg-[#7C1A1A] hover:bg-[#651414] text-white py-3.5 rounded-xl font-bold text-[15px] shadow-lg shadow-[#7C1A1A]/20 transition-all">Sign in</button>
-            <p className="text-center text-[13px] text-stone-400 font-medium">No account? <button type="button" className="text-[#7C1A1A] font-bold hover:underline">Create one</button></p>
+            <button type="submit" className="w-full bg-[#b1040e] hover:bg-[#651414] text-white py-3.5 rounded-xl font-bold text-[15px] shadow-lg shadow-[#b1040e]/20 transition-all">Sign in</button>
+            <p className="text-center text-[13px] text-stone-400 font-medium">No account? <button type="button" className="text-[#b1040e] font-bold hover:underline">Create one</button></p>
           </form>
         </DialogContent>
       </Dialog>
@@ -89,7 +89,7 @@ export const AuthModals = () => {
               <Label className="text-stone-500 font-bold text-[12px] uppercase tracking-wider">Email</Label>
               <Input type="email" required value={form.email || ''} onChange={(e) => set('email', e.target.value)} placeholder="admin@school.edu" className="h-11 rounded-xl bg-stone-50 border-stone-100 text-[14px]" />
             </div>
-            <button type="submit" className="w-full bg-[#7C1A1A] hover:bg-[#651414] text-white py-3.5 rounded-xl font-bold text-[15px] shadow-lg shadow-[#7C1A1A]/20 transition-all">Submit application</button>
+            <button type="submit" className="w-full bg-[#b1040e] hover:bg-[#651414] text-white py-3.5 rounded-xl font-bold text-[15px] shadow-lg shadow-[#b1040e]/20 transition-all">Submit application</button>
           </form>
         </DialogContent>
       </Dialog>
@@ -130,7 +130,7 @@ export const AuthModals = () => {
                 value={form.notes || ''} 
                 onChange={(e) => set('notes', e.target.value)} 
                 placeholder="Anything else we should know?" 
-                className="w-full h-20 rounded-xl bg-stone-50 border-stone-100 p-3 outline-none focus:ring-1 focus:ring-[#7C1A1A] text-[14px]"
+                className="w-full h-20 rounded-xl bg-stone-50 border-stone-100 p-3 outline-none focus:ring-1 focus:ring-[#b1040e] text-[14px]"
               />
             </div>
 
@@ -138,7 +138,7 @@ export const AuthModals = () => {
               <button type="button" onClick={closeModal} className="w-full sm:w-auto text-stone-400 font-bold text-[14px] hover:text-stone-600 transition-colors px-4 py-2">
                 Cancel
               </button>
-              <button type="submit" className="w-full sm:w-auto bg-[#7C1A1A] hover:bg-[#651414] text-white px-8 py-3 rounded-xl font-bold text-[14px] shadow-lg shadow-[#7C1A1A]/20 transition-all">
+              <button type="submit" className="w-full sm:w-auto bg-[#b1040e] hover:bg-[#651414] text-white px-8 py-3 rounded-xl font-bold text-[14px] shadow-lg shadow-[#b1040e]/20 transition-all">
                 Submit application
               </button>
             </div>
@@ -179,7 +179,7 @@ export const AuthModals = () => {
                 value={form.message || ''} 
                 onChange={(e) => set('message', e.target.value)} 
                 placeholder="Mention specific topics or any requirements" 
-                className="w-full h-20 rounded-xl bg-stone-50 border-stone-100 p-3 outline-none focus:ring-1 focus:ring-[#7C1A1A] text-[14px]"
+                className="w-full h-20 rounded-xl bg-stone-50 border-stone-100 p-3 outline-none focus:ring-1 focus:ring-[#b1040e] text-[14px]"
               />
             </div>
 
@@ -187,7 +187,7 @@ export const AuthModals = () => {
               <button type="button" onClick={closeModal} className="w-full sm:w-auto text-stone-400 font-bold text-[14px] hover:text-stone-600 transition-colors px-4 py-2">
                 Cancel
               </button>
-              <button type="submit" className="w-full sm:w-auto bg-[#7C1A1A] hover:bg-[#651414] text-white px-8 py-3 rounded-xl font-bold text-[14px] shadow-lg shadow-[#7C1A1A]/20 transition-all">
+              <button type="submit" className="w-full sm:w-auto bg-[#b1040e] hover:bg-[#651414] text-white px-8 py-3 rounded-xl font-bold text-[14px] shadow-lg shadow-[#b1040e]/20 transition-all">
                 Confirm booking
               </button>
             </div>
