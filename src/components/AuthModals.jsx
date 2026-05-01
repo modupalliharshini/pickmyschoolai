@@ -22,6 +22,18 @@ export const AuthModals = () => {
     setForm({});
     closeModal();
   };
+  const submitApply = (e) => {
+    e.preventDefault();
+    toast.success(`Application for ${form.childName || 'your child'} submitted successfully!`);
+    setForm({});
+    closeModal();
+  };
+  const submitBookTrial = (e) => {
+    e.preventDefault();
+    toast.success(`Trial booking submitted! ${modalData?.teacherName || 'Teacher'} will contact you soon.`);
+    setForm({});
+    closeModal();
+  };
 
   return (
     <>
@@ -89,7 +101,7 @@ export const AuthModals = () => {
               Apply to {modalData?.schoolName || 'School'}
             </DialogTitle>
           </DialogHeader>
-          <form onSubmit={submitSignIn} className="space-y-4">
+          <form onSubmit={submitApply} className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">
                 <Label className="text-stone-500 font-bold text-[12px] uppercase tracking-wider">Child's name</Label>
@@ -144,7 +156,7 @@ export const AuthModals = () => {
               Start your learning journey with a free session.
             </DialogDescription>
           </DialogHeader>
-          <form onSubmit={submitSignIn} className="space-y-4">
+          <form onSubmit={submitBookTrial} className="space-y-4">
             <div className="space-y-1.5">
               <Label className="text-stone-500 font-bold text-[12px] uppercase tracking-wider">Your name</Label>
               <Input required value={form.parentName || ''} onChange={(e) => set('parentName', e.target.value)} placeholder="Full name" className="h-11 rounded-xl bg-stone-50 border-stone-100 text-[14px]" />

@@ -48,9 +48,9 @@ const SchoolCard = ({ s }) => {
           </div>
           <button 
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate('/school/' + s.id); }}
-            className="text-[#7C1A1A] font-bold text-[12px] sm:text-[13px] flex items-center gap-1 hover:gap-2 transition-all"
+            className="w-full sm:w-auto bg-[#7C1A1A] text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-bold text-[11px] sm:text-[13px] hover:bg-[#651414] transition-all shadow-sm active:scale-95 text-center"
           >
-            Apply →
+            Apply now
           </button>
         </div>
       </div>
