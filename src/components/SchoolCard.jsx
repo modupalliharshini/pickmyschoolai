@@ -8,8 +8,11 @@ const SchoolCard = ({ s }) => {
   const navigate = useNavigate();
   
   return (
-    <div className="bg-white rounded-[32px] border border-[#F3E8E6] overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(124,26,26,0.12)] transition-all duration-300 group">
-      <div className="relative aspect-[16/10]">
+    <div 
+      onClick={() => navigate('/school/' + s.id)}
+      className="bg-white rounded-[32px] border border-[#F3E8E6] overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(124,26,26,0.12)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
+    >
+      <div className="relative aspect-[16/10] shrink-0">
         <SchoolIllustration />
         <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-white/90 backdrop-blur-md rounded-full px-2 py-0.5 sm:px-3 sm:py-1 flex items-center gap-1 sm:gap-1.5 shadow-sm z-10">
           <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-[#7C1A1A] text-[#7C1A1A]" />
@@ -26,7 +29,7 @@ const SchoolCard = ({ s }) => {
           <span className="text-[10px] sm:text-[12px] font-bold">{s.rating}</span>
         </div>
       </div>
-      <div className="p-3 sm:p-5">
+      <div className="p-3 sm:p-5 flex-1 flex flex-col">
         <h3 className="font-serif text-[15px] sm:text-[18px] font-bold text-stone-900 leading-tight group-hover:text-[#7C1A1A] transition-colors line-clamp-2 min-h-[2.5em]">{s.name}</h3>
         <p className="text-stone-400 text-[11px] sm:text-[12px] mt-1 font-medium truncate">{s.location}</p>
         
@@ -38,7 +41,7 @@ const SchoolCard = ({ s }) => {
           ))}
         </div>
 
-        <div className="mt-4 pt-3 border-t border-stone-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <div className="mt-auto pt-3 border-t border-stone-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <div>
             <span className="text-stone-400 text-[10px] font-medium uppercase tracking-wider block">Fee/Yr</span>
             <div className="text-stone-900 font-bold text-[13px] sm:text-[14px]">{s.fee}</div>
