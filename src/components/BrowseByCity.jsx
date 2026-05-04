@@ -17,7 +17,7 @@ const BrowseByCity = () => {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="text-center mb-12">
           <h2 className="text-[36px] lg:text-[48px] font-serif font-bold text-stone-900 leading-tight">
-            Browse schools by <span className="italic text-[#7C1A1A]">city.</span>
+            Browse schools by <span className="italic text-[#b1040e]">city.</span>
           </h2>
           <p className="mt-3 text-stone-400 text-[16px] font-medium">Find the best schools in your neighborhood.</p>
         </div>
@@ -27,9 +27,9 @@ const BrowseByCity = () => {
             <Link 
               key={city.name} 
               to="/find-schools"
-              className="group bg-white p-6 rounded-[32px] border border-stone-100 shadow-sm hover:bg-[#7C1A1A] hover:border-[#7C1A1A] transition-all duration-300 text-center"
+              className="group bg-white p-6 rounded-[32px] border border-stone-100 shadow-sm hover:bg-[#b1040e] hover:border-[#b1040e] transition-all duration-300 text-center"
             >
-              <div className={`w-14 h-14 rounded-[20px] ${city.img} mx-auto mb-5 flex items-center justify-center text-[#7C1A1A] group-hover:bg-white group-hover:scale-110 transition-all duration-300`}>
+              <div className={`w-14 h-14 rounded-[20px] ${city.img} mx-auto mb-5 flex items-center justify-center text-[#b1040e] group-hover:bg-white group-hover:scale-110 transition-all duration-300`}>
                 <MapPin className="w-6 h-6" />
               </div>
               <h4 className="font-serif font-bold text-[18px] text-stone-900 mb-1 group-hover:text-white transition-colors">{city.name}</h4>

@@ -18,12 +18,12 @@ const Hero = () => {
           {/* Left Column */}
           <div className="animate-in fade-in slide-in-from-left-8 duration-1000">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#F3E8E6] mb-6">
-              <Sparkles className="w-3 h-3 text-[#7C1A1A]" />
+              <Sparkles className="w-3 h-3 text-[#b1040e]" />
               <span className="text-[10px] tracking-[0.1em] font-bold text-stone-600 uppercase">AI-MATCHED · 12,000+ VERIFIED SCHOOLS</span>
             </div>
 
             <h1 className="font-serif text-[44px] md:text-[60px] lg:text-[72px] font-bold leading-[1.1] text-stone-900">
-              The right school for your child <span className="italic text-[#7C1A1A]">in 60 seconds.</span>
+              The right school for your child <span className="italic text-[#b1040e]">in 60 seconds.</span>
             </h1>
             
             <p className="mt-6 text-[16px] md:text-[18px] text-stone-500 max-w-[540px] leading-relaxed">
@@ -57,7 +57,7 @@ const Hero = () => {
               </div>
               <button 
                 onClick={handleSearch}
-                className="bg-[#7C1A1A] hover:bg-[#651414] text-white px-8 py-4 rounded-[20px] font-bold flex items-center justify-center gap-2 transition-all duration-200 active:scale-[0.98] text-[15px]"
+                className="bg-[#b1040e] hover:bg-[#651414] text-white px-8 py-4 rounded-[20px] font-bold flex items-center justify-center gap-2 transition-all duration-200 active:scale-[0.98] text-[15px]"
               >
                 Search <Search className="w-4.5 h-4.5" strokeWidth={2.5} />
               </button>
@@ -88,15 +88,15 @@ const Hero = () => {
           <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200">
             <div className="bg-[#F3E8E6] p-8 rounded-[40px]">
               <div className="flex items-center gap-2 text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#7C1A1A]" /> YOUR TOP MATCH · TODAY
+                <span className="w-1.5 h-1.5 rounded-full bg-[#b1040e]" /> YOUR TOP MATCH · TODAY
               </div>
 
               <div className="bg-white rounded-[28px] overflow-hidden border border-white shadow-[0_20px_45px_-12px_rgba(124,26,26,0.12)] group">
                 <div className="relative aspect-[16/10] scale-[0.98] mt-1 mx-1 rounded-[24px] overflow-hidden">
                   <SchoolIllustration />
                   <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md rounded-full px-2.5 py-0.5 flex items-center gap-1 shadow-sm">
-                    <Star className="w-2.5 h-2.5 fill-[#7C1A1A] text-[#7C1A1A]" />
-                    <span className="text-[9px] font-bold text-[#7C1A1A] tracking-wider uppercase">TOP MATCH · 96%</span>
+                    <Star className="w-2.5 h-2.5 fill-[#b1040e] text-[#b1040e]" />
+                    <span className="text-[9px] font-bold text-[#b1040e] tracking-wider uppercase">TOP MATCH · 96%</span>
                   </div>
                   <button className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm">
                     <Heart className="w-3.5 h-3.5 text-stone-400" />
@@ -124,7 +124,7 @@ const Hero = () => {
                     </div>
                     <button 
                       onClick={() => navigate('/school/1')}
-                      className="text-[#7C1A1A] font-bold text-[13px] flex items-center gap-1 hover:gap-2 transition-all"
+                      className="text-[#b1040e] font-bold text-[13px] flex items-center gap-1 hover:gap-2 transition-all"
                     >
                       Apply →
                     </button>
@@ -136,7 +136,7 @@ const Hero = () => {
                 <span className="text-stone-500 font-medium">+ 247 more in Hyderabad</span>
                 <button 
                   onClick={handleSearch}
-                  className="text-[#7C1A1A] font-bold flex items-center gap-1 hover:underline"
+                  className="text-[#b1040e] font-bold flex items-center gap-1 hover:underline"
                 >
                   View all →
                 </button>

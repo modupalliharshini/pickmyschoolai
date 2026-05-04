@@ -15,14 +15,14 @@ const SchoolCard = ({ s }) => {
       <div className="relative aspect-[16/10] shrink-0">
         <SchoolIllustration />
         <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-white/90 backdrop-blur-md rounded-full px-2 py-0.5 sm:px-3 sm:py-1 flex items-center gap-1 sm:gap-1.5 shadow-sm z-10">
-          <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-[#7C1A1A] text-[#7C1A1A]" />
-          <span className="text-[8px] sm:text-[10px] font-bold text-[#7C1A1A] tracking-wider uppercase">TOP MATCH · {s.score}%</span>
+          <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-[#b1040e] text-[#b1040e]" />
+          <span className="text-[8px] sm:text-[10px] font-bold text-[#b1040e] tracking-wider uppercase">TOP MATCH · {s.score}%</span>
         </div>
         <button 
           onClick={(e) => { e.preventDefault(); e.stopPropagation(); setLiked(!liked); }} 
           className="absolute top-2 right-2 sm:top-4 sm:right-4 w-7 h-7 sm:w-9 sm:h-9 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm z-10"
         >
-          <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${liked ? 'fill-[#7C1A1A] text-[#7C1A1A]' : 'text-stone-400'}`} />
+          <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${liked ? 'fill-[#b1040e] text-[#b1040e]' : 'text-stone-400'}`} />
         </button>
         <div className="absolute bottom-1.5 right-1.5 sm:bottom-4 sm:right-4 bg-stone-900/90 backdrop-blur-md text-white rounded-lg sm:rounded-xl px-1.5 py-0.5 sm:px-2.5 sm:py-1 flex items-center gap-1 z-10 scale-90 sm:scale-100">
           <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-yellow-400 text-yellow-400" />
@@ -30,7 +30,7 @@ const SchoolCard = ({ s }) => {
         </div>
       </div>
       <div className="p-3 sm:p-5 flex-1 flex flex-col">
-        <h3 className="font-serif text-[15px] sm:text-[18px] font-bold text-stone-900 leading-tight group-hover:text-[#7C1A1A] transition-colors line-clamp-2 min-h-[2.5em]">{s.name}</h3>
+        <h3 className="font-serif text-[15px] sm:text-[18px] font-bold text-stone-900 leading-tight group-hover:text-[#b1040e] transition-colors line-clamp-2 min-h-[2.5em]">{s.name}</h3>
         <p className="text-stone-400 text-[11px] sm:text-[12px] mt-1 font-medium truncate">{s.location}</p>
         
         <div className="mt-3 flex flex-wrap gap-1">
@@ -48,7 +48,7 @@ const SchoolCard = ({ s }) => {
           </div>
           <button 
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate('/school/' + s.id); }}
-            className="w-full sm:w-auto bg-[#7C1A1A] text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-bold text-[11px] sm:text-[13px] hover:bg-[#651414] transition-all shadow-sm active:scale-95 text-center"
+            className="w-full sm:w-auto bg-[#b1040e] text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-bold text-[11px] sm:text-[13px] hover:bg-[#651414] transition-all shadow-sm active:scale-95 text-center"
           >
             Apply now
           </button>

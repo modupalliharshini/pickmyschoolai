@@ -48,11 +48,11 @@ const ComparePage = () => {
                         <h3 className="font-serif text-[18px] font-semibold text-stone-900 leading-tight">{s.name}</h3>
                         <p className="text-[12.5px] text-stone-500 mt-1">{s.location}</p>
                       </div>
-                      <button onClick={() => pick(i, null)} className="text-stone-400 hover:text-[#7C1A1A]"><X className="w-4 h-4" /></button>
+                      <button onClick={() => pick(i, null)} className="text-stone-400 hover:text-[#b1040e]"><X className="w-4 h-4" /></button>
                     </div>
                   </div>
                 ) : (
-                  <button onClick={() => setPicker(i)} className="w-full min-h-[120px] border-2 border-dashed border-stone-300 rounded-xl flex items-center justify-center gap-2 text-stone-500 hover:border-[#7C1A1A] hover:text-[#7C1A1A] transition-colors">
+                  <button onClick={() => setPicker(i)} className="w-full min-h-[120px] border-2 border-dashed border-stone-300 rounded-xl flex items-center justify-center gap-2 text-stone-500 hover:border-[#b1040e] hover:text-[#b1040e] transition-colors">
                     <Plus className="w-4 h-4" /> Add school
                   </button>
                 )}
@@ -78,7 +78,7 @@ const ComparePage = () => {
               <h3 className="font-serif text-[24px] font-semibold text-stone-900">Select a school</h3>
               <div className="mt-4 space-y-2">
                 {schools.map((s) => (
-                  <button key={s.id} onClick={() => pick(picker, s)} className="w-full text-left p-4 rounded-xl border border-stone-200 hover:border-[#7C1A1A] transition-colors">
+                  <button key={s.id} onClick={() => pick(picker, s)} className="w-full text-left p-4 rounded-xl border border-stone-200 hover:border-[#b1040e] transition-colors">
                     <div className="font-medium text-stone-900">{s.name}</div>
                     <div className="text-[13px] text-stone-500">{s.location} · {s.fee}</div>
                   </button>

@@ -29,7 +29,7 @@ const Navbar = () => {
     <header className={`sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b ${scrolled ? 'border-stone-100' : 'border-transparent'} transition-colors duration-200`}>
       <nav className="max-w-[1400px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
-          <div className="w-10 h-10 rounded-xl bg-[#7C1A1A] flex items-center justify-center text-white">
+          <div className="w-10 h-10 rounded-xl bg-[#b1040e] flex items-center justify-center text-white">
             <GraduationCap className="w-5 h-5" strokeWidth={2.4} />
           </div>
           <div className="leading-tight">
@@ -45,7 +45,7 @@ const Navbar = () => {
             const active = location.pathname === item.to;
             return (
               <li key={item.label}>
-                <Link to={item.to} className={`text-[14px] font-medium transition-colors duration-150 ${active ? 'text-[#7C1A1A]' : 'text-stone-800 hover:text-[#7C1A1A]'}`}>
+                <Link to={item.to} className={`text-[14px] font-medium transition-colors duration-150 ${active ? 'text-[#b1040e]' : 'text-stone-800 hover:text-[#b1040e]'}`}>
                   {item.label}
                 </Link>
               </li>
@@ -54,8 +54,8 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden lg:flex items-center gap-6">
-          <button onClick={() => openModal('signin')} className="text-[14px] text-stone-800 font-medium hover:text-[#7C1A1A] transition-colors">Sign in</button>
-          <Link to="/for-schools" className="bg-[#7C1A1A] hover:bg-[#651414] text-white px-5 py-2.5 rounded-xl text-[14px] font-medium shadow-sm transition-colors duration-200">List your school</Link>
+          <button onClick={() => openModal('signin')} className="text-[14px] text-stone-800 font-medium hover:text-[#b1040e] transition-colors">Sign in</button>
+          <Link to="/for-schools" className="bg-[#b1040e] hover:bg-[#651414] text-white px-5 py-2.5 rounded-xl text-[14px] font-medium shadow-sm transition-colors duration-200">List your school</Link>
         </div>
         <button className="lg:hidden p-2 text-stone-800" onClick={() => setMobileOpen(true)} aria-label="Toggle menu">
           <Menu className="w-6 h-6" />
@@ -76,7 +76,7 @@ const Navbar = () => {
             {/* Header - Fixed at top */}
             <div className="flex items-center justify-between p-6 border-b border-stone-100 shrink-0">
               <Link to="/" className="flex items-center gap-2.5" onClick={() => setMobileOpen(false)}>
-                <div className="w-9 h-9 rounded-xl bg-[#7C1A1A] flex items-center justify-center text-white">
+                <div className="w-9 h-9 rounded-xl bg-[#b1040e] flex items-center justify-center text-white">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <span className="font-serif text-[18px] font-bold text-stone-900">PickMySchool</span>
@@ -94,7 +94,7 @@ const Navbar = () => {
                     <Link 
                       to={item.to} 
                       onClick={() => setMobileOpen(false)}
-                      className="block py-5 text-[17px] font-bold text-stone-900 hover:text-[#7C1A1A] transition-colors"
+                      className="block py-5 text-[17px] font-bold text-stone-900 hover:text-[#b1040e] transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -114,7 +114,7 @@ const Navbar = () => {
                 </button>
                 <button 
                   onClick={() => { setMobileOpen(false); openModal('list'); }}
-                  className="w-full py-4 text-[16px] font-bold text-white bg-[#7C1A1A] rounded-2xl shadow-lg shadow-[#7C1A1A]/20 active:scale-95 transition-all"
+                  className="w-full py-4 text-[16px] font-bold text-white bg-[#b1040e] rounded-2xl shadow-lg shadow-[#b1040e]/20 active:scale-95 transition-all"
                 >
                   List your school
                 </button>

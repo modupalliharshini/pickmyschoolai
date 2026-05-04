@@ -44,7 +44,7 @@ const SchoolDetailPage = () => {
                 <div className="absolute top-3 right-3 sm:top-6 sm:right-6 flex gap-2 sm:gap-3 z-10">
                   <button 
                     onClick={handleShare}
-                    className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-900 shadow-sm hover:bg-[#7C1A1A] hover:text-white transition-all"
+                    className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-stone-900 shadow-sm hover:bg-[#b1040e] hover:text-white transition-all"
                   >
                     <Share2 className="w-4 h-4 sm:w-5 h-5" />
                   </button>
@@ -52,7 +52,7 @@ const SchoolDetailPage = () => {
                     onClick={() => setLiked(!liked)}
                     className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-sm hover:scale-110 transition-all"
                   >
-                    <Heart className={`w-4 h-4 sm:w-5 h-5 ${liked ? 'fill-[#7C1A1A] text-[#7C1A1A]' : 'text-stone-900'}`} />
+                    <Heart className={`w-4 h-4 sm:w-5 h-5 ${liked ? 'fill-[#b1040e] text-[#b1040e]' : 'text-stone-900'}`} />
                   </button>
                 </div>
               </div>
@@ -60,7 +60,7 @@ const SchoolDetailPage = () => {
 
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="bg-[#FDF2F0] text-[#7C1A1A] text-[11px] font-bold px-3 py-1 rounded-full border border-[#F3E8E6] uppercase tracking-wider">TOP MATCH</span>
+                <span className="bg-[#FDF2F0] text-[#b1040e] text-[11px] font-bold px-3 py-1 rounded-full border border-[#F3E8E6] uppercase tracking-wider">TOP MATCH</span>
                 <span className="text-stone-400 text-[11px] font-bold uppercase tracking-wider">Est. 1996</span>
               </div>
               <h1 className="font-serif text-[48px] lg:text-[64px] font-bold text-stone-900 leading-tight">
@@ -68,10 +68,10 @@ const SchoolDetailPage = () => {
               </h1>
               <div className="flex flex-wrap items-center gap-6 mt-6">
                 <div className="flex items-center gap-2 text-stone-500 font-medium">
-                  <MapPin className="w-5 h-5 text-[#7C1A1A]" /> {school.location}
+                  <MapPin className="w-5 h-5 text-[#b1040e]" /> {school.location}
                 </div>
                 <div className="flex items-center gap-1.5 text-stone-900 font-bold">
-                  <Star className="w-5 h-5 fill-[#7C1A1A] text-[#7C1A1A]" /> {school.rating} <span className="text-stone-400 font-medium ml-1">(412 reviews)</span>
+                  <Star className="w-5 h-5 fill-[#b1040e] text-[#b1040e]" /> {school.rating} <span className="text-stone-400 font-medium ml-1">(412 reviews)</span>
                 </div>
               </div>
               <p className="mt-8 text-stone-500 text-[18px] leading-relaxed max-w-[700px]">
@@ -88,7 +88,7 @@ const SchoolDetailPage = () => {
                 { label: 'ANNUAL FEE', val: school.fee },
               ].map((h) => (
                 <div key={h.label} className="bg-white border border-[#F3E8E6] p-6 rounded-[28px] text-center md:text-left">
-                  <div className="text-[10px] font-bold text-[#7C1A1A] uppercase tracking-[0.15em] mb-2">{h.label}</div>
+                  <div className="text-[10px] font-bold text-[#b1040e] uppercase tracking-[0.15em] mb-2">{h.label}</div>
                   <div className="text-[20px] font-bold text-stone-900">{h.val}</div>
                 </div>
               ))}
@@ -100,7 +100,7 @@ const SchoolDetailPage = () => {
               <div className="flex flex-wrap gap-3">
                 {['Co-ed', 'Bus available', 'Sports', 'Smart classrooms', 'Transport', 'Library', 'Music', 'Labs'].map((tag) => (
                   <span key={tag} className="px-5 py-2.5 rounded-2xl bg-white border border-stone-100 text-stone-600 font-medium text-[15px] flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#7C1A1A]" /> {tag}
+                    <CheckCircle2 className="w-4 h-4 text-[#b1040e]" /> {tag}
                   </span>
                 ))}
               </div>
@@ -121,7 +121,7 @@ const SchoolDetailPage = () => {
               </div>
 
               <div className="bg-[#FDF2F0] border border-[#F3E8E6] rounded-2xl p-4 mb-8">
-                <div className="flex gap-2 text-[#7C1A1A]">
+                <div className="flex gap-2 text-[#b1040e]">
                   <span className="font-bold text-[13px] whitespace-nowrap">AI match · 96%</span>
                   <span className="text-stone-600 text-[13px]">· This school fits your child profile well.</span>
                 </div>
@@ -130,7 +130,7 @@ const SchoolDetailPage = () => {
               <div className="space-y-3">
                 <button 
                   onClick={() => openModal('apply', { schoolName: school.name })}
-                  className="w-full bg-[#7C1A1A] hover:bg-[#651414] text-white py-5 rounded-[24px] font-bold text-[17px] shadow-lg shadow-[#7C1A1A]/20 transition-all duration-200"
+                  className="w-full bg-[#b1040e] hover:bg-[#651414] text-white py-5 rounded-[24px] font-bold text-[17px] shadow-lg shadow-[#b1040e]/20 transition-all duration-200"
                 >
                   Apply now — free
                 </button>

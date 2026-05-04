@@ -22,7 +22,7 @@ const TeacherProfilePage = () => {
         <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
           <button 
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-stone-500 font-bold text-[14px] hover:text-[#7C1A1A] transition-colors"
+            className="flex items-center gap-2 text-stone-500 font-bold text-[14px] hover:text-[#b1040e] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> Back to search
           </button>
@@ -45,7 +45,7 @@ const TeacherProfilePage = () => {
             {/* Hero Section */}
             <div className="bg-white rounded-[40px] p-8 lg:p-12 shadow-sm border border-stone-100">
               <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-[32px] bg-[#7C1A1A] text-white flex items-center justify-center text-3xl lg:text-4xl font-serif font-bold shadow-xl shadow-[#7C1A1A]/20">
+                <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-[32px] bg-[#b1040e] text-white flex items-center justify-center text-3xl lg:text-4xl font-serif font-bold shadow-xl shadow-[#b1040e]/20">
                   {initials}
                 </div>
                 <div>
@@ -60,7 +60,7 @@ const TeacherProfilePage = () => {
                   
                   <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4">
                     <div className="flex items-center gap-1.5 text-stone-900 font-bold text-[15px]">
-                      <Star className="w-4 h-4 fill-[#7C1A1A] text-[#7C1A1A]" /> {teacher.rating} 
+                      <Star className="w-4 h-4 fill-[#b1040e] text-[#b1040e]" /> {teacher.rating} 
                       <span className="text-stone-400 font-medium ml-1">(42 reviews)</span>
                     </div>
                     <div className="w-1.5 h-1.5 rounded-full bg-stone-200" />
@@ -95,7 +95,7 @@ const TeacherProfilePage = () => {
             <div className="space-y-6">
               <div className="bg-white rounded-[32px] p-8 lg:p-10 border border-stone-100">
                 <h3 className="font-serif text-[24px] font-bold text-stone-900 mb-6 flex items-center gap-3">
-                  <BookOpen className="w-6 h-6 text-[#7C1A1A]" /> About the teacher
+                  <BookOpen className="w-6 h-6 text-[#b1040e]" /> About the teacher
                 </h3>
                 <p className="text-stone-600 leading-relaxed text-[17px]">
                   {teacher.bio} I believe in a student-centered approach where we focus on building strong foundations before moving to complex problem-solving. My sessions are interactive, goal-oriented, and tailored to each student's learning pace.
@@ -104,7 +104,7 @@ const TeacherProfilePage = () => {
 
               <div className="bg-white rounded-[32px] p-8 lg:p-10 border border-stone-100">
                 <h3 className="font-serif text-[24px] font-bold text-stone-900 mb-6 flex items-center gap-3">
-                  <GraduationCap className="w-6 h-6 text-[#7C1A1A]" /> Education & Credentials
+                  <GraduationCap className="w-6 h-6 text-[#b1040e]" /> Education & Credentials
                 </h3>
                 <div className="space-y-6">
                   <div className="flex gap-4">
@@ -132,7 +132,7 @@ const TeacherProfilePage = () => {
 
           {/* Sticky Booking Card */}
           <div className="sticky top-28 space-y-6">
-            <div className="bg-[#7C1A1A] rounded-[40px] p-8 text-white shadow-xl shadow-[#7C1A1A]/20">
+            <div className="bg-[#b1040e] rounded-[40px] p-8 text-white shadow-xl shadow-[#b1040e]/20">
               <div className="flex justify-between items-end mb-8">
                 <div>
                   <div className="text-white/60 text-[11px] font-bold uppercase tracking-widest mb-1">Starting from</div>
@@ -146,7 +146,7 @@ const TeacherProfilePage = () => {
               <div className="space-y-4">
                 <button 
                   onClick={() => openModal('bookTrial', { teacherName: teacher.name })}
-                  className="w-full bg-white text-[#7C1A1A] py-4 rounded-2xl font-bold text-[16px] hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="w-full bg-white text-[#b1040e] py-4 rounded-2xl font-bold text-[16px] hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
                   Book a free trial
                 </button>
