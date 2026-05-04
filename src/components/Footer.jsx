@@ -66,11 +66,11 @@ const Footer = () => {
             © 2026 PickMySchool.AI · Made with ♥ in India
           </div>
           <div className="flex gap-8">
-             <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Privacy Policy</Link>
-             <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Terms of Service</Link>
+            <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Privacy Policy</Link>
+            <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Terms of Service</Link>
           </div>
           <div className="text-white/20 text-[13px] font-medium">
-            Designed by <a href="https://thepatternscompany.com/" className="text-white/40 font-bold hover:text-[#7C1A1A] transition-colors">The Patterns Company</a>
+            Powered by <a href="https://thepatternscompany.com/" className="text-white/40 font-bold hover:text-[#7C1A1A] transition-colors">The Patterns Company</a>
           </div>
         </div>
       </div>
