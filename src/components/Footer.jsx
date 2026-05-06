@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo2 from '../assets/logo2.png';
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-6 lg:gap-8 pb-16 border-b border-white/5">
           <div className="col-span-2 lg:col-span-4">
             <Link to="/" className="flex items-center shrink-0 mb-10">
-              <img src={logo} alt="PickMySchool.AI" className="h-14 w-auto object-contain" />
+              <img src={logo2} alt="PickMySchool.AI" className="h-12 md:h-14 w-auto object-contain" />
             </Link>
             <p className="text-white/40 text-[15px] leading-relaxed max-w-[320px]">
               India's leading school marketplace and ERP platform. Helping parents find the right schools and schools find the right students.

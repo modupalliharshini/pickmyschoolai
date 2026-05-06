@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
-import logoWhite from '../assets/logo_white.png';
+import logo2 from '../assets/logo2.png';
 
 const navItems = [
   { label: 'Find schools', to: '/find-schools' },
@@ -30,7 +30,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-[#b1040e] shadow-md">
       <nav className="w-full h-16 flex items-center justify-between px-6 lg:px-12">
         <Link to="/" className="flex items-center shrink-0 hover:opacity-90 transition-opacity">
-          <img src={logoWhite} alt="PickMySchool.AI" className="h-9 w-auto object-contain mix-blend-screen" />
+          <img src={logo2} alt="PickMySchool.AI" className="h-12 md:h-14 w-auto object-contain" />
         </Link>
 
         <ul className="hidden lg:flex items-center gap-10">
@@ -58,18 +58,18 @@ const Navbar = () => {
       {/* Mobile Drawer */}
       <div className={`fixed inset-0 z-[100] lg:hidden ${mobileOpen ? 'block' : 'hidden'}`}>
         {/* Dark Overlay */}
-        <div 
-          className="absolute inset-0 bg-stone-900/80 backdrop-blur-sm" 
-          onClick={() => setMobileOpen(false)} 
+        <div
+          className="absolute inset-0 bg-stone-900/80 backdrop-blur-sm"
+          onClick={() => setMobileOpen(false)}
         />
-        
+
         {/* White Drawer */}
         <div className={`absolute top-0 right-0 bottom-0 w-[85%] max-w-[320px] bg-white shadow-2xl transition-transform duration-300 ease-out transform ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className="flex flex-col h-screen bg-white">
             {/* Header - Fixed at top */}
             <div className="flex items-center justify-between p-6 border-b border-white/10 shrink-0 bg-[#b1040e]">
               <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-                <img src={logoWhite} alt="PickMySchool.AI" className="h-9 w-auto object-contain mix-blend-screen" />
+                <img src={logo2} alt="PickMySchool.AI" className="h-8 sm:h-9 w-auto object-contain" />
               </Link>
               <button onClick={() => setMobileOpen(false)} className="p-2 text-white/70 hover:text-white">
                 <X className="w-6 h-6" />
@@ -81,8 +81,8 @@ const Navbar = () => {
               <ul className="px-6 py-4 divide-y divide-stone-50">
                 {navItems.map((item) => (
                   <li key={item.label}>
-                    <Link 
-                      to={item.to} 
+                    <Link
+                      to={item.to}
                       onClick={() => setMobileOpen(false)}
                       className="block py-5 text-[17px] font-bold text-stone-900 hover:text-[#b1040e] transition-colors"
                     >
@@ -96,13 +96,13 @@ const Navbar = () => {
             {/* Bottom Actions - Fixed at bottom */}
             <div className="p-6 border-t border-stone-100 bg-stone-50 shrink-0">
               <div className="flex flex-col gap-3">
-                <button 
+                <button
                   onClick={() => { setMobileOpen(false); openModal('signin'); }}
                   className="w-full py-4 text-[16px] font-bold text-stone-900 bg-white border border-stone-200 rounded-2xl shadow-sm active:scale-95 transition-all"
                 >
                   Sign in
                 </button>
-                <button 
+                <button
                   onClick={() => { setMobileOpen(false); openModal('list'); }}
                   className="w-full py-4 text-[16px] font-bold text-white bg-[#b1040e] rounded-2xl shadow-lg shadow-[#b1040e]/20 active:scale-95 transition-all"
                 >
