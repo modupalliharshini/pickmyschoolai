@@ -132,6 +132,12 @@ const SchoolDetailPage = () => {
               ))}
             </div>
 
+            <div className="pt-6">
+              <button className="bg-white border border-[#F3E8E6] hover:border-stone-300 px-8 py-4 rounded-full font-bold text-[15px] text-stone-800 transition-all duration-200 shadow-sm flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#b1040e]" /> View Branches
+              </button>
+            </div>
+
             {/* More Details */}
             <div>
               <h3 className="text-[24px] font-bold text-stone-900 mb-6">Highlights</h3>
