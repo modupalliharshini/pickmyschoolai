@@ -24,7 +24,7 @@ function App() {
         <BrowserRouter>
           <ScrollToTop />
           <Navbar />
-          <main>
+          <main className="pt-16">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/find-schools" element={<FindSchoolsPage />} />

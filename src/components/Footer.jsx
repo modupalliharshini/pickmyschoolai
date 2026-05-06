@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
+import { Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
@@ -8,11 +9,8 @@ const Footer = () => {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-6 lg:gap-8 pb-16 border-b border-white/5">
           <div className="col-span-2 lg:col-span-4">
-            <Link to="/" className="flex items-center gap-3 shrink-0 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-[#b1040e] flex items-center justify-center text-white">
-                <GraduationCap className="w-5 h-5" strokeWidth={2.4} />
-              </div>
-              <div className="font-serif text-[22px] font-bold tracking-tight">PickMySchool.AI</div>
+            <Link to="/" className="flex items-center shrink-0 mb-10">
+              <img src={logo} alt="PickMySchool.AI" className="h-14 w-auto object-contain" />
             </Link>
             <p className="text-white/40 text-[15px] leading-relaxed max-w-[320px]">
               India's leading school marketplace and ERP platform. Helping parents find the right schools and schools find the right students.

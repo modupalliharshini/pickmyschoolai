@@ -6,7 +6,7 @@ const ForSchoolsPage = () => {
   const { openModal } = useModal();
   return (
     <>
-      <section className="bg-[#b1040e] text-white relative overflow-hidden">
+      <section className="bg-stone-900 text-white relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20">
             <span className="text-[11px] tracking-[0.2em] font-semibold">FOR SCHOOLS</span>
