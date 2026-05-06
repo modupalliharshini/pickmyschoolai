@@ -41,24 +41,24 @@ const FindTeacherPage = () => {
 
       <FilterGroup label="SUBJECT" options={SUBJECTS} value={subject} onChange={setSubject} />
       <FilterGroup label="CITY" options={CITIES} value={city} onChange={(val) => { setCity(val); setLocality('All'); }} />
-      
+
       {city !== 'All' && (
         <FilterGroup label="LOCALITY" options={LOCALITIES[city]} value={locality} onChange={setLocality} />
       )}
-      
+
       <div className="mt-8">
         <div className="flex justify-between items-center mb-3">
           <div className="text-[10px] tracking-[0.2em] font-bold text-stone-400 uppercase">MAX PRICE/HR</div>
           <span className="text-stone-900 font-bold text-[13px]">₹{maxPrice}</span>
         </div>
-        <input 
-          type="range" 
-          min="200" 
-          max="1500" 
-          step="50" 
-          value={maxPrice} 
-          onChange={(e) => setMaxPrice(+e.target.value)} 
-          className="w-full accent-[#b1040e] h-1 bg-stone-100 rounded-lg appearance-none cursor-pointer" 
+        <input
+          type="range"
+          min="200"
+          max="1500"
+          step="50"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(+e.target.value)}
+          className="w-full accent-[#b1040e] h-1 bg-stone-100 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-[11px] text-stone-400 font-bold mt-2">
           <span>₹200</span>
@@ -68,15 +68,15 @@ const FindTeacherPage = () => {
 
       <div className="mt-auto pt-8 flex flex-col gap-3">
         {mobile && (
-          <button 
+          <button
             onClick={() => setIsFilterOpen(false)}
             className="w-full bg-[#b1040e] text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-[#b1040e]/20 transition-all"
           >
             Apply Filters
           </button>
         )}
-        <button 
-          onClick={() => { setSubject('All'); setCity('All'); setLocality('All'); setMaxPrice(1500); if(mobile) setIsFilterOpen(false); }} 
+        <button
+          onClick={() => { setSubject('All'); setCity('All'); setLocality('All'); setMaxPrice(1500); if (mobile) setIsFilterOpen(false); }}
           className="w-full bg-stone-50 hover:bg-stone-100 text-stone-600 py-3 rounded-xl font-bold text-[14px] transition-colors"
         >
           Reset filters
@@ -91,11 +91,11 @@ const FindTeacherPage = () => {
         <div className="mb-8 flex justify-between items-start">
           <div>
             <h1 className="font-serif text-[40px] lg:text-[56px] font-bold text-stone-900 leading-tight">
-              Find your <span className="italic text-[#b1040e]">teacher.</span>
+              Pick your <span className="italic text-[#b1040e]">teacher.</span>
             </h1>
             <p className="mt-3 text-stone-400 font-medium text-[16px]">Vetted tutors for every subject and grade. Online or at your home.</p>
           </div>
-          <button 
+          <button
             onClick={() => setIsFilterOpen(true)}
             className="lg:hidden p-3 bg-[#FBF7F0] text-stone-900 rounded-xl border border-[#F3E8E6] flex items-center gap-2 font-bold text-[14px] mt-2"
           >
@@ -135,7 +135,7 @@ const FindTeacherPage = () => {
                     <ExternalLink className="w-4 h-4" />
                   </button>
                 </div>
-                
+
                 <div className="mt-4 space-y-1.5">
                   <div className="flex items-center gap-2 text-stone-600 font-medium text-[11px] sm:text-[13px]">
                     <BookOpen className="w-3.5 h-3.5 text-stone-400" /> <span className="truncate">{t.subject}</span>
@@ -146,7 +146,7 @@ const FindTeacherPage = () => {
                 </div>
 
                 <div className="mt-auto">
-                  <button 
+                  <button
                     onClick={() => navigate(`/teacher/${t.id}`)}
                     className="mt-4 w-full text-center text-stone-400 font-bold text-[11px] sm:text-[13px] hover:text-[#b1040e] transition-colors"
                   >
@@ -157,7 +157,7 @@ const FindTeacherPage = () => {
                       <div className="text-[9px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-wider">From</div>
                       <div className="text-stone-900 font-bold text-[13px] sm:text-[16px]">₹{t.fee}<span className="text-[10px] font-medium text-stone-400">/hr</span></div>
                     </div>
-                    <button 
+                    <button
                       onClick={() => openModal('bookTrial', { teacherName: t.name })}
                       className="w-full sm:w-auto bg-[#b1040e] text-white px-4 py-1.5 sm:py-2.5 rounded-xl font-bold text-[11px] sm:text-[14px] hover:bg-[#651414] transition-all active:scale-95 shadow-sm shadow-[#b1040e]/20"
                     >
@@ -184,9 +184,9 @@ const FilterGroup = ({ label, options, value, onChange }) => (
     <div className="text-[10px] tracking-[0.2em] font-bold text-stone-400 uppercase">{label}</div>
     <div className="mt-3 flex flex-wrap gap-1.5">
       {options.map((o) => (
-        <button 
-          key={o} 
-          onClick={() => onChange(o)} 
+        <button
+          key={o}
+          onClick={() => onChange(o)}
           className={`px-3.5 py-1.5 rounded-full text-[13px] font-medium border transition-all ${value === o ? 'bg-[#b1040e] text-white border-[#b1040e]' : 'bg-white border-stone-100 text-stone-500 hover:border-stone-200'}`}
         >
           {o}

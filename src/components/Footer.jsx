@@ -41,7 +41,8 @@ const Footer = () => {
           <div className="col-span-1 lg:col-span-2">
             <h4 className="font-bold text-white mb-8 text-[15px]">For Schools</h4>
             <ul className="space-y-4">
-              {['List your school', 'School ERP', 'Lead Management', 'Marketplace Ads'].map((link) => (
+              {/* {['List your school', 'School ERP', 'Lead Management', 'Marketplace Ads'].map((link) =>  */}
+              {['List your school'].map((link) => (
                 <li key={link}><Link to="/for-schools" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">{link}</Link></li>
               ))}
             </ul>
@@ -68,7 +69,7 @@ const Footer = () => {
             <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Terms of Service</Link>
           </div>
           <div className="text-white/20 text-[13px] font-medium">
-           Powered by <a href="https://thepatternscompany.com/" className="text-white/40 font-bold hover:text-[#7C1A1A] transition-colors">The Patterns Company</a>
+            Powered by <a href="https://thepatternscompany.com/" className="text-white/40 font-bold hover:text-[#7C1A1A] transition-colors">The Patterns Company</a>
           </div>
         </div>
       </div>
