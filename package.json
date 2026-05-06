@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.4",
     "autoprefixer": "^10.5.0",
+    "i": "^0.3.7",
     "lucide-react": "^0.475.0",
     "postcss": "^8.5.12",
     "react": "^19.2.5",
