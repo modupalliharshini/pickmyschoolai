@@ -112,6 +112,11 @@ export const AuthModals = () => {
                 <Input required type="tel" value={form.phone || ''} onChange={(e) => set('phone', e.target.value)} placeholder="+91 98765 43210" className="h-11 rounded-xl bg-stone-50 border-stone-100 text-[14px]" />
               </div>
             </div>
+
+            <div className="space-y-1.5">
+              <Label className="text-stone-500 font-bold text-[12px] uppercase tracking-wider">Parent Email</Label>
+              <Input required type="email" value={form.email || ''} onChange={(e) => set('email', e.target.value)} placeholder="parent@example.com" className="h-11 rounded-xl bg-stone-50 border-stone-100 text-[14px]" />
+            </div>
             
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">

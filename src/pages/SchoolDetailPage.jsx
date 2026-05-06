@@ -9,7 +9,18 @@ const SchoolDetailPage = () => {
   const { id } = useParams();
   const school = schools.find((s) => s.id === parseInt(id)) || schools[0];
   const [liked, setLiked] = React.useState(false);
+  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+  const [activeImg, setActiveImg] = React.useState(0);
   const { openModal } = useModal();
+
+  const galleryImages = [
+    { url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1200", title: "Main Campus Entrance" },
+    { url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200", title: "Smart Classrooms" },
+    { url: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1200", title: "Central Library" },
+    { url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200", title: "Outdoor Courtyard" },
+    { url: "https://images.unsplash.com/photo-1546410531-bb4caa1b4227?q=80&w=1200", title: "Science Laboratories" },
+    { url: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1200", title: "Sports Complex" },
+  ];
 
   const handleShare = () => {
     if (navigator.share) {
@@ -22,6 +33,17 @@ const SchoolDetailPage = () => {
       navigator.clipboard.writeText(window.location.href);
       alert('Link copied to clipboard!');
     }
+  };
+
+  const openLightbox = (index) => {
+    setActiveImg(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -39,8 +61,9 @@ const SchoolDetailPage = () => {
           {/* Left Column */}
           <div className="space-y-12">
             <div className="bg-white rounded-[40px] overflow-hidden border border-[#F3E8E6] shadow-sm">
-              <div className="aspect-[21/9] relative">
+              <div className="aspect-[21/9] relative group">
                 <SchoolIllustration />
+                
                 <div className="absolute top-3 right-3 sm:top-6 sm:right-6 flex gap-2 sm:gap-3 z-10">
                   <button 
                     onClick={handleShare}
@@ -58,7 +81,22 @@ const SchoolDetailPage = () => {
               </div>
             </div>
 
-            <div>
+            {/* Compact Gallery Bar */}
+            <div className="w-full max-w-full overflow-hidden mb-6">
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                {galleryImages.map((img, i) => (
+                  <button 
+                    key={i}
+                    onClick={() => openLightbox(i)}
+                    className="relative shrink-0 w-24 h-16 sm:w-28 sm:h-20 rounded-xl overflow-hidden border border-white shadow-sm hover:scale-105 transition-transform bg-stone-100"
+                  >
+                    <img src={img.url} alt={img.title} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-2">
               <div className="flex items-center gap-3 mb-4">
                 <span className="bg-[#FDF2F0] text-[#b1040e] text-[11px] font-bold px-3 py-1 rounded-full border border-[#F3E8E6] uppercase tracking-wider">TOP MATCH</span>
                 <span className="text-stone-400 text-[11px] font-bold uppercase tracking-wider">Est. 1996</span>
@@ -147,6 +185,57 @@ const SchoolDetailPage = () => {
 
         </div>
       </div>
+
+      {/* Image Modal (Simplified Lightbox) */}
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="absolute inset-0 bg-stone-900/60 backdrop-blur-md" onClick={closeLightbox} />
+          
+          <div className="relative w-full max-w-[700px] bg-white rounded-[32px] overflow-hidden shadow-2xl z-10 animate-in zoom-in-95 duration-300">
+            <button 
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-stone-900 hover:bg-[#b1040e] hover:text-white transition-all z-20 shadow-sm"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="relative aspect-[4/3] bg-stone-100 flex items-center justify-center group">
+              <button 
+                onClick={(e) => { e.stopPropagation(); setActiveImg((activeImg - 1 + galleryImages.length) % galleryImages.length); }}
+                className="absolute left-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-stone-900 hover:bg-stone-900 hover:text-white transition-all z-10 shadow-sm opacity-0 group-hover:opacity-100"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <img 
+                src={galleryImages[activeImg].url} 
+                alt={galleryImages[activeImg].title} 
+                className="w-full h-full object-cover"
+              />
+
+              <button 
+                onClick={(e) => { e.stopPropagation(); setActiveImg((activeImg + 1) % galleryImages.length); }}
+                className="absolute right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-stone-900 hover:bg-[#b1040e] hover:text-white transition-all z-10 shadow-sm"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="p-5 flex items-center justify-between bg-white">
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold text-[#b1040e] uppercase tracking-wider mb-0.5">Photo {activeImg + 1} of {galleryImages.length}</span>
+                <h4 className="text-[16px] font-bold text-stone-900">{galleryImages[activeImg].title}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
