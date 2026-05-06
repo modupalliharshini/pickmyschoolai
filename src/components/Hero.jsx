@@ -1,17 +1,66 @@
 import React, { useState } from 'react';
-import { Search, MapPin, Sparkles, Heart, Star, ChevronDown } from 'lucide-react';
+import { Search, MapPin, Sparkles, Heart, Star, ChevronDown, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SchoolIllustration from './SchoolIllustration';
 
 const Hero = () => {
   const navigate = useNavigate();
 
+  const topSchools = [
+    {
+      id: 1,
+      name: "Delhi Public School Nacharam",
+      location: "Nacharam · Hyderabad",
+      tags: ['CBSE', 'Co-ed', 'Bus available'],
+      fee: "₹1.4L",
+      match: "96%"
+    },
+    {
+      id: 2,
+      name: "Oakridge International School",
+      location: "Gachibowli · Hyderabad",
+      tags: ['IB', 'Co-ed', 'Premium'],
+      fee: "₹3.5L",
+      match: "94%"
+    },
+    {
+      id: 3,
+      name: "Chirec International School",
+      location: "Kondapur · Hyderabad",
+      tags: ['CBSE/IB', 'Co-ed', 'Sports'],
+      fee: "₹2.8L",
+      match: "92%"
+    },
+    {
+      id: 4,
+      name: "Global Indian International School",
+      location: "Uppal · Hyderabad",
+      tags: ['CBSE', 'Co-ed', 'Modern'],
+      fee: "₹1.6L",
+      match: "91%"
+    },
+    {
+      id: 5,
+      name: "The Hyderabad Public School",
+      location: "Begumpet · Hyderabad",
+      tags: ['ICSE', 'Heritage', 'Elite'],
+      fee: "₹1.2L",
+      match: "90%"
+    }
+  ];
+
+  const [schoolIndex, setSchoolIndex] = useState(0);
+
+  const nextSchool = () => {
+    setSchoolIndex((prev) => (prev + 1) % topSchools.length);
+  };
+
   const handleSearch = () => {
     navigate('/find-schools');
   };
 
   return (
-    <section className="relative pt-4 pb-12 lg:pt-5 lg:pb-16 overflow-hidden bg-[#FDF2F0]">
+    <section className="relative pt-24 pb-12 lg:pt-28 lg:pb-16 overflow-hidden bg-[#FDF2F0]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center">
           
@@ -84,56 +133,87 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Top Match Card */}
-          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200">
-            <div className="bg-[#F3E8E6] p-8 rounded-[40px]">
-              <div className="flex items-center gap-2 text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#b1040e]" /> YOUR TOP MATCH · TODAY
+          {/* Right Column - Top Match Card Slider */}
+          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 lg:pl-6 group/hero max-w-[420px] mx-auto lg:mx-0">
+            {/* Hanging Card Background Layers */}
+            <div className="absolute inset-0 bg-[#e5d5d2] rounded-[32px] transform rotate-[-2deg] translate-y-2 opacity-40 animate-hanging-bg-1" />
+            <div className="absolute inset-0 bg-white/40 rounded-[32px] transform rotate-[1deg] translate-x-1 translate-y-1 animate-hanging-bg-2" />
+            
+            <div className="relative bg-[#F3E8E6] p-5 rounded-[32px] border border-white/60 shadow-xl shadow-stone-200/40 overflow-hidden animate-hanging-card">
+              <div className="flex items-center gap-2 text-[9px] font-bold text-stone-500 uppercase tracking-widest mb-4">
+                <span className="w-1.2 h-1.2 rounded-full bg-[#b1040e] animate-pulse" /> YOUR TOP MATCH · TODAY
               </div>
 
-              <div className="bg-white rounded-[28px] overflow-hidden border border-white shadow-[0_20px_45px_-12px_rgba(124,26,26,0.12)] group">
-                <div className="relative aspect-[16/10] scale-[0.98] mt-1 mx-1 rounded-[24px] overflow-hidden">
-                  <SchoolIllustration />
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md rounded-full px-2.5 py-0.5 flex items-center gap-1 shadow-sm">
-                    <Star className="w-2.5 h-2.5 fill-[#b1040e] text-[#b1040e]" />
-                    <span className="text-[9px] font-bold text-[#b1040e] tracking-wider uppercase">TOP MATCH · 96%</span>
-                  </div>
-                  <button className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm">
-                    <Heart className="w-3.5 h-3.5 text-stone-400" />
-                  </button>
-                  <div className="absolute bottom-3 right-3 bg-stone-900/90 backdrop-blur-md text-white rounded-lg px-2 py-0.5 flex items-center gap-1">
-                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                    <span className="text-[11px] font-bold">4.8</span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="font-serif text-[20px] font-bold text-stone-900 leading-tight">Delhi Public School Nacharam</h3>
-                  <p className="text-stone-400 text-[13px] mt-1 font-medium">Nacharam · Hyderabad</p>
-                  
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    <span className="px-2.5 py-1 rounded-lg bg-stone-50 text-stone-600 text-[11px] font-medium border border-stone-100">CBSE</span>
-                    <span className="px-2.5 py-1 rounded-lg bg-stone-50 text-stone-600 text-[11px] font-medium border border-stone-100">Co-ed</span>
-                    <span className="px-2.5 py-1 rounded-lg bg-stone-50 text-stone-600 text-[11px] font-medium border border-stone-100">Bus available</span>
-                  </div>
-
-                  <div className="mt-6 pt-5 border-t border-stone-50 flex items-center justify-between">
-                    <div>
-                      <span className="text-stone-400 text-[12px] font-medium">Annual fee</span>
-                      <span className="text-stone-900 font-bold text-[15px] ml-2">₹1.4L</span>
-                    </div>
-                    <button 
-                      onClick={() => navigate('/school/1')}
-                      className="text-[#b1040e] font-bold text-[13px] flex items-center gap-1 hover:gap-2 transition-all"
+              <div className="relative w-full overflow-hidden">
+                {/* Carousel Container */}
+                <div 
+                  className="flex transition-transform duration-500 ease-out w-full"
+                  style={{ transform: `translateX(-${schoolIndex * 100}%)` }}
+                >
+                  {topSchools.map((school, idx) => (
+                    <div 
+                      key={school.id}
+                      className="w-full flex-shrink-0"
                     >
-                      Apply →
-                    </button>
-                  </div>
+                      <div className="bg-white rounded-[24px] overflow-hidden border border-white shadow-[0_15px_35px_-10px_rgba(124,26,26,0.08)] group relative">
+                        <div className="relative aspect-[16/9] scale-[0.96] mt-1 mx-1 rounded-[20px] overflow-hidden">
+                          <SchoolIllustration />
+                          <div className="absolute top-2.5 left-2.5 bg-white/95 backdrop-blur-md rounded-full px-2 py-0.5 flex items-center gap-1 shadow-sm">
+                            <Star className="w-2.5 h-2.5 fill-[#b1040e] text-[#b1040e]" />
+                            <span className="text-[8px] font-bold text-[#b1040e] tracking-wider uppercase">TOP MATCH · {school.match}</span>
+                          </div>
+                          <button className="absolute top-2.5 right-2.5 w-7 h-7 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors">
+                            <Heart className="w-3 h-3 text-stone-400 hover:text-[#b1040e] transition-colors" />
+                          </button>
+                          <div className="absolute bottom-2.5 right-2.5 bg-stone-900/90 backdrop-blur-md text-white rounded-lg px-2 py-0.5 flex items-center gap-1">
+                            <Star className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
+                            <span className="text-[10px] font-bold">4.8</span>
+                          </div>
+                        </div>
+
+                        <div className="p-5">
+                          <h3 className="font-serif text-[18px] font-bold text-stone-900 leading-tight">{school.name}</h3>
+                          <p className="text-stone-400 text-[12px] mt-0.5 font-medium">{school.location}</p>
+                          
+                          <div className="mt-3.5 flex flex-wrap gap-1.5">
+                            {school.tags.map(tag => (
+                              <span key={tag} className="px-2 py-1 rounded-lg bg-stone-50 text-stone-600 text-[10px] font-semibold border border-stone-100/60">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className="mt-6 pt-4 border-t border-stone-50 flex items-center justify-between">
+                            <div>
+                              <span className="text-stone-400 text-[11px] font-medium block mb-0.5">Annual fee</span>
+                              <span className="text-stone-900 font-bold text-[16px]">{school.fee}</span>
+                            </div>
+                            
+                            <div className="flex flex-col items-center gap-1.5">
+                              <button 
+                                onClick={(e) => { e.stopPropagation(); nextSchool(); }}
+                                className="w-7 h-7 rounded-full bg-[#b1040e] text-white flex items-center justify-center shadow-md shadow-[#b1040e]/20 hover:bg-[#8e030b] hover:scale-110 active:scale-95 transition-all group/btn z-10"
+                              >
+                                <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                              </button>
+                              
+                              <button 
+                                onClick={() => navigate(`/school/${school.id}`)}
+                                className="text-[#b1040e] font-bold text-[11px] flex items-center gap-1 hover:gap-2 transition-all"
+                              >
+                                Apply →
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="mt-5 flex items-center justify-between text-[12px]">
-                <span className="text-stone-500 font-medium">+ 247 more in Hyderabad</span>
+              <div className="mt-5 flex items-center justify-between text-[11px]">
+                <span className="text-stone-500 font-medium">+ {247 + topSchools.length} more in Hyderabad</span>
                 <button 
                   onClick={handleSearch}
                   className="text-[#b1040e] font-bold flex items-center gap-1 hover:underline"
@@ -150,4 +230,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

@@ -31,7 +31,7 @@ const ComparePage = () => {
   };
 
   return (
-    <section className="bg-[#FBF7F0] min-h-screen py-14">
+    <section className="bg-[#FBF7F0] min-h-screen pt-24 pb-14">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         <h1 className="font-serif text-[48px] lg:text-[60px] font-semibold text-stone-900 leading-tight">Compare schools</h1>
         <p className="text-stone-500 mt-3">Pick up to 3 schools and compare side-by-side.</p>

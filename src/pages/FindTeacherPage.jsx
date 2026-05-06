@@ -86,7 +86,7 @@ const FindTeacherPage = () => {
   );
 
   return (
-    <section className="bg-white min-h-screen py-8">
+    <section className="bg-white min-h-screen pt-24 pb-8">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="mb-8 flex justify-between items-start">
           <div>

@@ -35,7 +35,7 @@ const AiMatchPage = () => {
   if (done) {
     const ranked = [...schools].sort((a, b) => b.score - a.score).slice(0, 6);
     return (
-      <section className="bg-[#FBF7F0] min-h-screen py-16">
+      <section className="bg-[#FBF7F0] min-h-screen pt-24 pb-16">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200"><Sparkles className="w-4 h-4 text-[#b1040e]" /><span className="text-[11px] tracking-[0.18em] font-semibold text-stone-700">AI MATCH COMPLETE</span></div>
           <h1 className="mt-5 font-serif text-[48px] lg:text-[64px] font-semibold text-stone-900 leading-tight">Your <span className="italic text-[#b1040e]">top matches.</span></h1>
@@ -64,7 +64,7 @@ const AiMatchPage = () => {
   }
 
   return (
-    <section className="bg-[#FBF7F0] min-h-screen py-16">
+    <section className="bg-[#FBF7F0] min-h-screen pt-24 pb-16">
       <div className="max-w-[900px] mx-auto px-6">
         <div className="text-center">
           <h1 className="font-serif text-[44px] lg:text-[60px] font-semibold text-stone-900 leading-tight">

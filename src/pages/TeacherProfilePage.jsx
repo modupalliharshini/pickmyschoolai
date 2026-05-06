@@ -16,7 +16,7 @@ const TeacherProfilePage = () => {
   const initials = teacher.name.split(' ').map(n => n[0]).join('').toUpperCase();
 
   return (
-    <main className="bg-[#FDF2F0]/30 min-h-screen pb-20">
+    <main className="bg-[#FDF2F0]/30 min-h-screen pt-24 pb-20">
       {/* Header */}
       <div className="bg-white border-b border-stone-100 sticky top-0 z-30">
         <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">

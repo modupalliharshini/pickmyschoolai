@@ -117,7 +117,7 @@ const FindSchoolsPage = () => {
   );
 
   return (
-    <section className="bg-white min-h-screen py-8">
+    <section className="bg-white min-h-screen pt-24 pb-8">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex items-start lg:items-end justify-between flex-col lg:flex-row gap-6 mb-8">
           <div className="w-full flex justify-between items-start">

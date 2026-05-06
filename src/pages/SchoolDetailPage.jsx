@@ -25,7 +25,7 @@ const SchoolDetailPage = () => {
   };
 
   return (
-    <div className="bg-[#FBF7F0] min-h-screen">
+    <div className="bg-[#FBF7F0] min-h-screen pt-24">
       {/* Header / Nav */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-6">
         <Link to="/find-schools" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors font-medium">
