@@ -10,7 +10,7 @@ const TopPicks = () => {
 
   return (
     <section id="top-picks" className="pt-8 pb-16 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 w-full overflow-hidden">
         <div className="flex items-end justify-between mb-8">
           <div>
             <h2 className="text-[36px] lg:text-[48px] font-serif font-bold text-stone-900 leading-tight">

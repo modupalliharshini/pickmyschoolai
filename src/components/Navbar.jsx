@@ -27,7 +27,7 @@ const Navbar = () => {
   useEffect(() => { setMobileOpen(false); }, [location]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-[#b1040e] shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-[#b1040e] shadow-md overflow-hidden">
       <nav className="w-full h-16 flex items-center justify-between px-6 lg:px-12">
         <Link to="/" className="flex items-center shrink-0 hover:opacity-90 transition-opacity">
           <img src={logo2} alt="PickMySchool.AI" className="h-12 md:h-14 w-auto object-contain" />
