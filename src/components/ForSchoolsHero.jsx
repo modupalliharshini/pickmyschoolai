@@ -11,7 +11,7 @@ const ForSchoolsHero = () => {
               <div className="text-white/60 font-bold text-[10px] tracking-[0.2em] uppercase mb-6">FOR SCHOOLS</div>
               <h2 className="text-[28px] md:text-[36px] lg:text-[44px] font-serif font-bold text-white leading-[1.1]">
                 Run your school. Fill seats. <br />
-                <span className="italic text-[#F3E8E6]/80">All in one dashboard.</span>
+                <span className="italic text-[#ffb2ab]">All in one dashboard.</span>
               </h2>
               <p className="mt-4 text-white/70 text-[16px] max-w-[500px] leading-relaxed">
                 Complete ERP — admissions, students, fees, attendance, communication — plus marketing analytics, lead pipeline and ad performance. Already trusted by 1,200+ schools.
@@ -20,7 +20,7 @@ const ForSchoolsHero = () => {
                 <Link to="/for-schools" className="bg-white text-[#b1040e] px-8 py-4 rounded-[18px] font-bold text-[16px] hover:scale-[1.02] transition-all text-center">
                   List your school free
                 </Link>
-                <button className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-[18px] font-bold text-[16px] hover:bg-white/5 transition-all">
+                <button className="bg-transparent border border-white/20 text-white px-8 py-3.5 rounded-[14px] font-bold text-[15px] hover:bg-white/5 transition-all">
                   Tour the dashboard
                 </button>
               </div>

@@ -11,7 +11,7 @@ const AiMatch = () => {
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#b1040e]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
           
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/60 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               <span className="text-[10px] tracking-[0.2em] font-bold uppercase">AI MATCH ENGINE</span>
             </div>
