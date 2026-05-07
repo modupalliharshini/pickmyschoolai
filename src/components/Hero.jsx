@@ -246,24 +246,25 @@ const Hero = () => {
               style={{ '--rot': '1.5deg' }} 
             />
             
-            <div className="relative bg-white p-7 rounded-[56px] shadow-[0_60px_120px_-20px_rgba(124,26,26,0.15),0_30px_60px_-10px_rgba(124,26,26,0.1)] border border-white overflow-hidden animate-float-card">
-              <div className="flex items-center gap-2.5 text-[11px] font-bold text-stone-400 uppercase tracking-[0.15em] mb-7 px-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#b1040e]" /> YOUR TOP MATCH · TODAY
-              </div>
+            <div className="relative bg-white rounded-[56px] shadow-[0_60px_120px_-20px_rgba(124,26,26,0.15),0_30px_60px_-10px_rgba(124,26,26,0.1)] border border-white overflow-hidden animate-float-card aspect-square">
+              <div className="h-full flex flex-col p-7">
+                <div className="flex items-center gap-2.5 text-[11px] font-bold text-stone-400 uppercase tracking-[0.15em] mb-6 px-1">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#b1040e]" /> YOUR TOP MATCH · TODAY
+                </div>
 
-              <div className="relative w-full overflow-hidden">
-                {/* Carousel Container */}
-                <div 
-                  className="flex transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1) w-full"
-                  style={{ transform: `translateX(-${schoolIndex * 100}%)` }}
-                  onTouchStart={onTouchStart}
-                  onTouchMove={onTouchMove}
-                  onTouchEnd={onTouchEnd}
-                >
+                <div className="relative flex-1 min-h-0 w-full overflow-hidden">
+                  {/* Carousel Container */}
+                  <div 
+                    className="flex h-full transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1) w-full"
+                    style={{ transform: `translateX(-${schoolIndex * 100}%)` }}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                  >
                   {topSchools.map((school, idx) => (
-                    <div key={school.id} className="w-full flex-shrink-0 px-1">
-                      <div className="bg-white rounded-[32px] overflow-hidden group relative aspect-square flex flex-col border border-stone-50">
-                        <div className="relative flex-1 rounded-[24px] overflow-hidden m-1">
+                    <div key={school.id} className="w-full h-full flex-shrink-0 px-1">
+                      <div className="bg-white rounded-[32px] overflow-hidden group relative h-full flex flex-col border border-stone-50">
+                        <div className="relative flex-[1.4] min-h-0 rounded-[24px] overflow-hidden m-1">
                           <SchoolIllustration />
                           <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-md rounded-full px-4 py-1.5 flex items-center gap-2 shadow-sm">
                             <Star className="w-3.5 h-3.5 fill-[#b1040e] text-[#b1040e]" />
@@ -278,22 +279,24 @@ const Hero = () => {
                           </div>
                         </div>
 
-                        <div className="p-7">
-                          <h3 className="font-serif text-[22px] font-bold text-stone-900 leading-tight">{school.name}</h3>
-                          <p className="text-stone-400 text-[14px] mt-1 font-medium">{school.location}</p>
-                          
-                          <div className="mt-5 flex flex-wrap gap-2">
-                            {school.tags.map(tag => (
-                              <span key={tag} className="px-3 py-1 rounded-xl bg-stone-50 text-stone-600 text-[11px] font-bold border border-stone-100/60">
-                                {tag}
-                              </span>
-                            ))}
+                        <div className="px-6 py-4 flex-1 flex flex-col justify-between">
+                          <div>
+                            <h3 className="font-serif text-[20px] font-bold text-stone-900 leading-tight">{school.name}</h3>
+                            <p className="text-stone-400 text-[13px] mt-0.5 font-medium">{school.location}</p>
+                            
+                            <div className="mt-3 flex flex-wrap gap-1.5">
+                              {school.tags.map(tag => (
+                                <span key={tag} className="px-2.5 py-1 rounded-xl bg-stone-50 text-stone-600 text-[10px] font-bold border border-stone-100/60">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
                           </div>
 
-                          <div className="mt-7 pt-6 border-t border-stone-50 flex items-center justify-between">
-                            <div className="flex items-baseline gap-2">
-                              <span className="text-stone-400 text-[13px] font-medium">Annual fee</span>
-                              <span className="text-stone-900 font-bold text-[20px]">{school.fee}</span>
+                          <div className="pt-4 border-t border-stone-50 flex items-center justify-between">
+                            <div className="flex items-baseline gap-1.5">
+                              <span className="text-stone-400 text-[12px] font-medium">Annual fee</span>
+                              <span className="text-stone-900 font-bold text-[18px]">{school.fee}</span>
                             </div>
                             
                             <div className="flex flex-col items-center gap-2">
@@ -319,14 +322,15 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center justify-between text-[12px] px-1">
-                <span className="text-stone-400 font-medium">+ {247 + topSchools.length} more in Hyderabad</span>
-                <button 
-                  onClick={handleSearch}
-                  className="text-[#b1040e] font-bold flex items-center gap-1.5 hover:underline"
-                >
-                  View all →
-                </button>
+                <div className="mt-4 flex items-center justify-between text-[12px] px-1">
+                  <span className="text-stone-400 font-medium">+ {247 + topSchools.length} more in Hyderabad</span>
+                  <button 
+                    onClick={handleSearch}
+                    className="text-[#b1040e] font-bold flex items-center gap-1.5 hover:underline"
+                  >
+                    View all →
+                  </button>
+                </div>
               </div>
             </div>
           </div>
