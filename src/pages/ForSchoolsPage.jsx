@@ -6,18 +6,18 @@ const ForSchoolsPage = () => {
   const { openModal } = useModal();
   return (
     <>
-      <section className="bg-stone-900 text-white relative overflow-hidden pt-24">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <section className="bg-stone-900 text-white relative overflow-hidden pt-20">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20">
             <span className="text-[11px] tracking-[0.2em] font-semibold">FOR SCHOOLS</span>
           </div>
-          <h1 className="mt-8 font-serif text-[56px] lg:text-[96px] font-semibold leading-[0.95] max-w-[1100px]">
+          <h1 className="mt-6 font-serif text-[40px] lg:text-[64px] font-semibold leading-[0.95] max-w-[1100px]">
             One platform to <span className="italic">run, fill &</span> grow your school.
           </h1>
-          <p className="mt-8 text-[18px] text-stone-200 max-w-[680px]">
+          <p className="mt-6 text-[17px] text-stone-300 max-w-[680px] leading-relaxed">
             ERP + marketplace listing + marketing analytics + lead pipeline – built specifically for Indian K-12 schools.
           </p>
-          <button onClick={() => openModal('list')} className="mt-10 inline-flex items-center gap-2 bg-white text-[#b1040e] px-8 py-4 rounded-xl font-medium hover:bg-stone-100 transition-colors">
+          <button onClick={() => openModal('list')} className="mt-8 inline-flex items-center gap-2 bg-white text-[#b1040e] px-8 py-4 rounded-xl font-medium hover:bg-stone-100 transition-colors">
             List your school free <ArrowRight className="w-4 h-4" />
           </button>
         </div>

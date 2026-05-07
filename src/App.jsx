@@ -14,6 +14,7 @@ import ForSchoolsPage from './pages/ForSchoolsPage';
 import FindTeacherPage from './pages/FindTeacherPage';
 import TeacherProfilePage from './pages/TeacherProfilePage';
 import SchoolDetailPage from './pages/SchoolDetailPage';
+import BranchesPage from './pages/BranchesPage';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -34,6 +35,7 @@ function App() {
               <Route path="/find-teacher" element={<FindTeacherPage />} />
               <Route path="/teacher/:id" element={<TeacherProfilePage />} />
               <Route path="/school/:id" element={<SchoolDetailPage />} />
+              <Route path="/school/:id/branches" element={<BranchesPage />} />
             </Routes>
           </main>
           <Footer />

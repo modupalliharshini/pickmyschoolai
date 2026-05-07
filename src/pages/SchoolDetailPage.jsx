@@ -14,12 +14,12 @@ const SchoolDetailPage = () => {
   const { openModal } = useModal();
 
   const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1200", title: "Main Campus Entrance" },
-    { url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200", title: "Smart Classrooms" },
-    { url: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1200", title: "Central Library" },
-    { url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200", title: "Outdoor Courtyard" },
-    { url: "https://images.unsplash.com/photo-1546410531-bb4caa1b4227?q=80&w=1200", title: "Science Laboratories" },
-    { url: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1200", title: "Sports Complex" },
+    { url: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1200", title: "Main Campus Entrance" },
+    { url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=1200", title: "Smart Classrooms" },
+    { url: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=1200", title: "Central Library" },
+    { url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1200", title: "Outdoor Courtyard" },
+    { url: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1200", title: "Science Laboratories" },
+    { url: "https://images.unsplash.com/photo-1546410531-bb4caa1b4227?auto=format&fit=crop&q=80&w=1200", title: "Sports Complex" },
   ];
 
   const handleShare = () => {
@@ -59,7 +59,7 @@ const SchoolDetailPage = () => {
         <div className="grid lg:grid-cols-[1fr_400px] gap-12 items-start">
           
           {/* Left Column */}
-          <div className="space-y-12">
+          <div className="space-y-8">
             <div className="bg-white rounded-[40px] overflow-hidden border border-[#F3E8E6] shadow-sm">
               <div className="aspect-[21/9] relative group">
                 <SchoolIllustration />
@@ -81,14 +81,13 @@ const SchoolDetailPage = () => {
               </div>
             </div>
 
-            {/* Compact Gallery Bar */}
-            <div className="w-full max-w-full overflow-hidden mb-6">
-              <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="w-full max-w-full mb-6">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                 {galleryImages.map((img, i) => (
                   <button 
                     key={i}
                     onClick={() => openLightbox(i)}
-                    className="relative shrink-0 w-24 h-16 sm:w-28 sm:h-20 rounded-xl overflow-hidden border border-white shadow-sm hover:scale-105 transition-transform bg-stone-100"
+                    className="relative w-full aspect-video rounded-xl overflow-hidden border border-white shadow-sm hover:scale-105 transition-transform bg-stone-100"
                   >
                     <img src={img.url} alt={img.title} className="w-full h-full object-cover" />
                   </button>
@@ -132,10 +131,16 @@ const SchoolDetailPage = () => {
               ))}
             </div>
 
-            <div className="pt-6">
-              <button className="bg-white border border-[#F3E8E6] hover:border-stone-300 px-8 py-4 rounded-full font-bold text-[15px] text-stone-800 transition-all duration-200 shadow-sm flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#b1040e]" /> View Branches
-              </button>
+            <div>
+              <Link 
+                to={`/school/${id}/branches`}
+                className="inline-flex items-center gap-3 bg-white border border-stone-200 hover:border-[#b1040e] hover:text-[#b1040e] px-8 py-4 rounded-full font-bold text-[15px] text-stone-800 transition-all duration-300 shadow-sm group"
+              >
+                <div className="bg-[#FDF2F0] p-2 rounded-full group-hover:bg-[#b1040e] transition-colors">
+                  <MapPin className="w-4 h-4 text-[#b1040e] group-hover:text-white" />
+                </div>
+                View All Branches
+              </Link>
             </div>
 
             {/* More Details */}
