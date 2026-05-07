@@ -2,7 +2,7 @@ import React from 'react';
 
 const SchoolIllustration = () => (
   <div className="w-full h-full bg-[#E8D3D3] flex items-center justify-center relative overflow-hidden">
-    <svg viewBox="0 0 400 240" className="w-[85%] h-auto">
+    <svg viewBox="0 0 400 240" className="w-[110%] h-auto translate-y-4">
       {/* Side blocks */}
       <rect x="100" y="140" width="70" height="70" fill="#b1040e" />
       <rect x="230" y="140" width="70" height="70" fill="#b1040e" />

@@ -1,19 +1,22 @@
 import React, { useState, useMemo } from 'react';
 import { Search, SlidersHorizontal, Heart, Star, ChevronDown, X } from 'lucide-react';
 import { schools } from '../mock';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SchoolCard from '../components/SchoolCard';
 
 const CITIES = ['All', 'Hyderabad', 'Bengaluru', 'Mumbai', 'Delhi NCR', 'Chennai', 'Pune', 'Kolkata'];
 const BOARDS = ['All', 'CBSE', 'ICSE', 'IB', 'State', 'Pre-school'];
 
 const FindSchoolsPage = () => {
-  const [city, setCity] = useState('All');
-  const [board, setBoard] = useState('All');
-  const [maxFee, setMaxFee] = useState(15);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const initialFilters = location.state || {};
+
+  const [city, setCity] = useState(initialFilters.city || 'All');
+  const [board, setBoard] = useState(initialFilters.board || 'All');
+  const [maxFee, setMaxFee] = useState(initialFilters.maxFee || 15);
   const [query, setQuery] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const navigate = useNavigate();
 
   const extended = useMemo(() => {
     const base = [...schools];

@@ -49,14 +49,92 @@ const Hero = () => {
     }
   ];
 
+  const [city, setCity] = useState('Hyderabad');
+  const [grade, setGrade] = useState('Class 1');
+  const [board, setBoard] = useState('CBSE / ICSE');
+  const [budget, setBudget] = useState('₹1L - ₹2L');
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const cities = ['Hyderabad', 'Bengaluru', 'Mumbai', 'Delhi NCR', 'Chennai', 'Pune'];
+  const grades = ['Pre-school', 'Class 1', 'Class 5', 'Class 10'];
+  const boards = ['CBSE', 'ICSE', 'IB', 'State'];
+  const budgets = [
+    { label: '< ₹1L', value: 1.0 },
+    { label: '₹1L - ₹2L', value: 2.0 },
+    { label: '₹2L - ₹5L', value: 5.0 },
+    { label: '₹5L+', value: 15.0 }
+  ];
+
+  const handleSearch = () => {
+    const selectedBudget = budgets.find(b => b.label === budget);
+    navigate('/find-schools', { 
+      state: { 
+        city, 
+        board: board === 'CBSE / ICSE' ? 'CBSE' : board, 
+        maxFee: selectedBudget ? selectedBudget.value : 15 
+      } 
+    });
+  };
+
+  const Dropdown = ({ label, value, options, onSelect, isOpen, onClose }) => (
+    <div className="relative h-full flex flex-col justify-center">
+      <div className="flex items-center gap-1 text-[8px] font-bold text-stone-400 uppercase tracking-wider mb-0.5">
+        {label === 'CITY' && <MapPin className="w-2 h-2" />} {label}
+      </div>
+      <div 
+        onClick={(e) => { e.stopPropagation(); isOpen ? onClose() : setActiveDropdown(label); }}
+        className="flex items-center justify-between cursor-pointer group"
+      >
+        <span className="text-[13px] font-bold text-stone-800 group-hover:text-[#b1040e] transition-colors">{value}</span>
+        <ChevronDown className={`w-3 h-3 text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </div>
+      
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-stone-100 rounded-2xl shadow-xl z-[100] py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+          {options.map((opt) => (
+            <div 
+              key={typeof opt === 'string' ? opt : opt.label}
+              onClick={() => {
+                onSelect(typeof opt === 'string' ? opt : opt.label);
+                onClose();
+              }}
+              className="px-4 py-2 text-[13px] font-medium text-stone-600 hover:bg-[#FDF2F0] hover:text-[#b1040e] cursor-pointer transition-colors"
+            >
+              {typeof opt === 'string' ? opt : opt.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
   const [schoolIndex, setSchoolIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      setSchoolIndex((prev) => (prev + 1) % topSchools.length);
+    } else if (isRightSwipe) {
+      setSchoolIndex((prev) => (prev - 1 + topSchools.length) % topSchools.length);
+    }
+  };
 
   const nextSchool = () => {
     setSchoolIndex((prev) => (prev + 1) % topSchools.length);
-  };
-
-  const handleSearch = () => {
-    navigate('/find-schools');
   };
 
   return (
@@ -80,33 +158,56 @@ const Hero = () => {
             </p>
 
             {/* Search Bar */}
-            <div className="mt-8 bg-white rounded-[24px] border border-[#F3E8E6] shadow-[0_15px_40px_-12px_rgba(124,26,26,0.06)] flex flex-col md:flex-row items-stretch p-1 w-full overflow-hidden">
+            <div 
+              className="mt-8 bg-white rounded-[24px] border border-[#F3E8E6] shadow-[0_15px_40px_-12px_rgba(124,26,26,0.06)] flex flex-col md:flex-row items-stretch p-1 w-full overflow-hidden"
+              onClick={() => setActiveDropdown(null)}
+            >
               <div className="flex-1 grid grid-cols-2 md:grid-cols-4">
-                <div className="px-4 py-3 flex flex-col justify-center border-r border-b md:border-b-0 border-stone-100">
-                  <div className="flex items-center gap-1 text-[8px] font-bold text-stone-400 uppercase tracking-wider mb-0.5">
-                    <MapPin className="w-2 h-2" /> CITY
-                  </div>
-                  <div className="flex items-center justify-between cursor-pointer">
-                    <span className="text-[13px] font-bold text-stone-800">Hyderabad</span>
-                    <ChevronDown className="w-3 h-3 text-stone-400" />
-                  </div>
+                <div className="px-4 py-3 border-r border-b md:border-b-0 border-stone-100">
+                  <Dropdown 
+                    label="CITY" 
+                    value={city} 
+                    options={cities} 
+                    onSelect={(val) => setCity(val)}
+                    isOpen={activeDropdown === 'CITY'}
+                    onClose={() => setActiveDropdown(null)}
+                    onClick={(e) => { e.stopPropagation(); setActiveDropdown('CITY'); }}
+                  />
                 </div>
-                <div className="px-4 py-3 flex flex-col justify-center border-b md:border-b-0 md:border-r border-stone-100">
-                  <div className="text-[8px] font-bold text-stone-400 uppercase tracking-wider mb-0.5">GRADE</div>
-                  <div className="text-[13px] font-bold text-stone-800">Class 1</div>
+                <div className="px-4 py-3 border-b md:border-b-0 md:border-r border-stone-100">
+                  <Dropdown 
+                    label="GRADE" 
+                    value={grade} 
+                    options={grades} 
+                    onSelect={(val) => setGrade(val)}
+                    isOpen={activeDropdown === 'GRADE'}
+                    onClose={() => setActiveDropdown(null)}
+                  />
                 </div>
-                <div className="px-4 py-3 flex flex-col justify-center border-r border-b md:border-b-0 md:border-r border-stone-100">
-                  <div className="text-[8px] font-bold text-stone-400 uppercase tracking-wider mb-0.5">BOARD</div>
-                  <div className="text-[13px] font-bold text-stone-800">CBSE / ICSE</div>
+                <div className="px-4 py-3 border-r border-b md:border-b-0 md:border-r border-stone-100">
+                  <Dropdown 
+                    label="BOARD" 
+                    value={board} 
+                    options={boards} 
+                    onSelect={(val) => setBoard(val)}
+                    isOpen={activeDropdown === 'BOARD'}
+                    onClose={() => setActiveDropdown(null)}
+                  />
                 </div>
-                <div className="px-4 py-3 flex flex-col justify-center border-b md:border-b-0 border-stone-100">
-                  <div className="text-[8px] font-bold text-stone-400 uppercase tracking-wider mb-0.5">BUDGET</div>
-                  <div className="text-[13px] font-bold text-stone-800">₹1L - ₹2L</div>
+                <div className="px-4 py-3 border-b md:border-b-0 border-stone-100">
+                  <Dropdown 
+                    label="BUDGET" 
+                    value={budget} 
+                    options={budgets} 
+                    onSelect={(val) => setBudget(val)}
+                    isOpen={activeDropdown === 'BUDGET'}
+                    onClose={() => setActiveDropdown(null)}
+                  />
                 </div>
               </div>
               <button 
                 onClick={handleSearch}
-                className="bg-[#b1040e] hover:bg-[#651414] text-white px-6 py-4 rounded-[18px] font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] text-[15px] mt-1 md:mt-0"
+                className="bg-[#b1040e] hover:bg-[#651414] text-white px-10 py-4 rounded-[18px] font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] text-[15px] mt-1 md:mt-0"
               >
                 Search <Search className="w-4 h-4" />
               </button>
@@ -134,72 +235,78 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Top Match Card Slider */}
-          <div className="relative fade-in duration-1000 delay-200 lg:pl-6 group/hero max-w-[420px] mx-auto lg:mx-0 w-full overflow-hidden">
-            {/* Hanging Card Background Layers */}
-            <div className="absolute inset-0 bg-[#e5d5d2] rounded-[32px] transform rotate-[-1deg] translate-y-1 opacity-40 animate-hanging-bg-1" />
-            <div className="absolute inset-0 bg-white/40 rounded-[32px] transform rotate-[0.5deg] translate-x-0.5 translate-y-0.5 animate-hanging-bg-2" />
+          <div className="relative fade-in duration-1000 delay-200 lg:pl-6 group/hero max-w-[480px] mx-auto lg:mx-0 w-full">
+            {/* Background Stacked Layers */}
+            <div 
+              className="absolute inset-0 bg-[#F3E8E6] rounded-[56px] opacity-40 animate-float-bg" 
+              style={{ '--rot': '-3deg' }} 
+            />
+            <div 
+              className="absolute inset-0 bg-white/40 rounded-[56px] opacity-60 animate-float-bg" 
+              style={{ '--rot': '1.5deg' }} 
+            />
             
-            <div className="relative bg-[#F3E8E6] p-4 sm:p-5 rounded-[32px] border border-white/60 shadow-xl shadow-stone-200/40 overflow-hidden animate-hanging-card">
-              <div className="flex items-center gap-2 text-[9px] font-bold text-stone-500 uppercase tracking-widest mb-4">
-                <span className="w-1.2 h-1.2 rounded-full bg-[#b1040e] animate-pulse" /> YOUR TOP MATCH · TODAY
+            <div className="relative bg-white p-7 rounded-[56px] shadow-[0_60px_120px_-20px_rgba(124,26,26,0.15),0_30px_60px_-10px_rgba(124,26,26,0.1)] border border-white overflow-hidden animate-float-card">
+              <div className="flex items-center gap-2.5 text-[11px] font-bold text-stone-400 uppercase tracking-[0.15em] mb-7 px-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#b1040e]" /> YOUR TOP MATCH · TODAY
               </div>
 
               <div className="relative w-full overflow-hidden">
                 {/* Carousel Container */}
                 <div 
-                  className="flex transition-transform duration-500 ease-out w-full"
+                  className="flex transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1) w-full"
                   style={{ transform: `translateX(-${schoolIndex * 100}%)` }}
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={onTouchEnd}
                 >
                   {topSchools.map((school, idx) => (
-                    <div 
-                      key={school.id}
-                      className="w-full flex-shrink-0"
-                    >
-                      <div className="bg-white rounded-[24px] overflow-hidden border border-white shadow-[0_15px_35px_-10px_rgba(124,26,26,0.08)] group relative">
-                        <div className="relative aspect-[16/9] scale-[0.96] mt-1 mx-1 rounded-[20px] overflow-hidden">
+                    <div key={school.id} className="w-full flex-shrink-0 px-1">
+                      <div className="bg-white rounded-[32px] overflow-hidden group relative aspect-square flex flex-col border border-stone-50">
+                        <div className="relative flex-1 rounded-[24px] overflow-hidden m-1">
                           <SchoolIllustration />
-                          <div className="absolute top-2.5 left-2.5 bg-white/95 backdrop-blur-md rounded-full px-2 py-0.5 flex items-center gap-1 shadow-sm">
-                            <Star className="w-2.5 h-2.5 fill-[#b1040e] text-[#b1040e]" />
-                            <span className="text-[8px] font-bold text-[#b1040e] tracking-wider uppercase">TOP MATCH · {school.match}</span>
+                          <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-md rounded-full px-4 py-1.5 flex items-center gap-2 shadow-sm">
+                            <Star className="w-3.5 h-3.5 fill-[#b1040e] text-[#b1040e]" />
+                            <span className="text-[11px] font-bold text-[#b1040e] tracking-wider uppercase">TOP MATCH · {school.match}</span>
                           </div>
-                          <button className="absolute top-2.5 right-2.5 w-7 h-7 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors">
-                            <Heart className="w-3 h-3 text-stone-400 hover:text-[#b1040e] transition-colors" />
+                          <button className="absolute top-5 right-5 w-10 h-10 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors">
+                            <Heart className="w-5 h-5 text-stone-400 hover:text-[#b1040e] transition-colors" />
                           </button>
-                          <div className="absolute bottom-2.5 right-2.5 bg-stone-900/90 backdrop-blur-md text-white rounded-lg px-2 py-0.5 flex items-center gap-1">
-                            <Star className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
-                            <span className="text-[10px] font-bold">4.8</span>
+                          <div className="absolute bottom-5 right-5 bg-stone-900/90 backdrop-blur-md text-white rounded-xl px-3 py-1.5 flex items-center gap-2">
+                            <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                            <span className="text-[13px] font-bold">4.8</span>
                           </div>
                         </div>
 
-                        <div className="p-5">
-                          <h3 className="font-serif text-[18px] font-bold text-stone-900 leading-tight">{school.name}</h3>
-                          <p className="text-stone-400 text-[12px] mt-0.5 font-medium">{school.location}</p>
+                        <div className="p-7">
+                          <h3 className="font-serif text-[22px] font-bold text-stone-900 leading-tight">{school.name}</h3>
+                          <p className="text-stone-400 text-[14px] mt-1 font-medium">{school.location}</p>
                           
-                          <div className="mt-3.5 flex flex-wrap gap-1.5">
+                          <div className="mt-5 flex flex-wrap gap-2">
                             {school.tags.map(tag => (
-                              <span key={tag} className="px-2 py-1 rounded-lg bg-stone-50 text-stone-600 text-[10px] font-semibold border border-stone-100/60">
+                              <span key={tag} className="px-3 py-1 rounded-xl bg-stone-50 text-stone-600 text-[11px] font-bold border border-stone-100/60">
                                 {tag}
                               </span>
                             ))}
                           </div>
 
-                          <div className="mt-6 pt-4 border-t border-stone-50 flex items-center justify-between">
-                            <div>
-                              <span className="text-stone-400 text-[11px] font-medium block mb-0.5">Annual fee</span>
-                              <span className="text-stone-900 font-bold text-[16px]">{school.fee}</span>
+                          <div className="mt-7 pt-6 border-t border-stone-50 flex items-center justify-between">
+                            <div className="flex items-baseline gap-2">
+                              <span className="text-stone-400 text-[13px] font-medium">Annual fee</span>
+                              <span className="text-stone-900 font-bold text-[20px]">{school.fee}</span>
                             </div>
                             
-                            <div className="flex flex-col items-center gap-1.5">
+                            <div className="flex flex-col items-center gap-2">
                               <button 
                                 onClick={(e) => { e.stopPropagation(); nextSchool(); }}
-                                className="w-7 h-7 rounded-full bg-[#b1040e] text-white flex items-center justify-center shadow-md shadow-[#b1040e]/20 hover:bg-[#8e030b] hover:scale-110 active:scale-95 transition-all group/btn z-10"
+                                className="w-8 h-8 rounded-full bg-[#b1040e] text-white flex items-center justify-center shadow-lg shadow-[#b1040e]/20 hover:bg-[#8e030b] hover:scale-110 active:scale-95 transition-all group/btn z-10"
                               >
-                                <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                                <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
                               </button>
                               
                               <button 
                                 onClick={() => navigate(`/school/${school.id}`)}
-                                className="text-[#b1040e] font-bold text-[11px] flex items-center gap-1 hover:gap-2 transition-all"
+                                className="text-[#b1040e] font-bold text-[13px] flex items-center gap-1.5 hover:gap-2 transition-all"
                               >
                                 Apply →
                               </button>
@@ -212,11 +319,11 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="mt-5 flex items-center justify-between text-[11px]">
-                <span className="text-stone-500 font-medium">+ {247 + topSchools.length} more in Hyderabad</span>
+              <div className="mt-6 flex items-center justify-between text-[12px] px-1">
+                <span className="text-stone-400 font-medium">+ {247 + topSchools.length} more in Hyderabad</span>
                 <button 
                   onClick={handleSearch}
-                  className="text-[#b1040e] font-bold flex items-center gap-1 hover:underline"
+                  className="text-[#b1040e] font-bold flex items-center gap-1.5 hover:underline"
                 >
                   View all →
                 </button>
