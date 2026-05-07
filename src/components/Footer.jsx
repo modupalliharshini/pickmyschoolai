@@ -62,7 +62,7 @@ const Footer = () => {
 
         <div className="mt-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-white/20 text-[13px] font-medium">
-            © 2026 PickMySchool.AI · Made with ♥ in India
+            © 2026 PickMySchool.AI
           </div>
           <div className="flex gap-8">
             <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Privacy Policy</Link>
