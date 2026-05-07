@@ -5,7 +5,7 @@ import logo2 from '../assets/logo2.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0A0A0A] text-white pt-20 pb-10">
+    <footer className="bg-[#0A0A0A] text-white pt-20">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-6 lg:gap-8 pb-16 border-b border-white/5">
           <div className="col-span-2 lg:col-span-4">
@@ -60,16 +60,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-white/20 text-[13px] font-medium">
+      </div>
+
+      <div className="mt-16 bg-[#b1040e] py-6">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-white/60 text-[13px] font-bold">
             © 2026 PickMySchool.AI
           </div>
           <div className="flex gap-8">
-            <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-white/20 hover:text-white text-[13px] font-medium transition-colors">Terms of Service</Link>
+            <Link to="#" className="text-white/60 hover:text-white text-[13px] font-bold transition-colors underline decoration-white/20 underline-offset-4">Privacy Policy</Link>
+            <Link to="#" className="text-white/60 hover:text-white text-[13px] font-bold transition-colors underline decoration-white/20 underline-offset-4">Terms of Service</Link>
           </div>
-          <div className="text-white/20 text-[13px] font-medium">
-            Powered by <a href="https://thepatternscompany.com/" className="text-white/40 font-bold hover:text-[#7C1A1A] transition-colors">The Patterns Company</a>
+          <div className="text-white/60 text-[13px] font-bold">
+            Powered by <a href="https://thepatternscompany.com/" className="text-white hover:text-white transition-colors">The Patterns Company</a>
           </div>
         </div>
       </div>

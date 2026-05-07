@@ -154,6 +154,25 @@ const SchoolDetailPage = () => {
                 ))}
               </div>
             </div>
+
+            {/* Campus Life - Filled with images */}
+            <div className="pt-8">
+              <div className="flex items-center justify-between mb-8">
+                <h3 className="text-[28px] font-bold text-stone-900">Campus Life</h3>
+                <span className="text-stone-400 font-medium">{galleryImages.length} Moments Captured</span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {galleryImages.map((img, i) => (
+                  <div key={i} className={`relative rounded-[32px] overflow-hidden group cursor-pointer ${i === 0 ? 'md:col-span-2 md:row-span-2' : ''}`} onClick={() => openLightbox(i)}>
+                    <img src={img.url} alt={img.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                    <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                      <p className="font-bold text-[18px]">{img.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Application Card */}

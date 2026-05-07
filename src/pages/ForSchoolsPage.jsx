@@ -6,18 +6,19 @@ const ForSchoolsPage = () => {
   const { openModal } = useModal();
   return (
     <>
-      <section className="bg-stone-900 text-white relative overflow-hidden pt-20">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20">
-            <span className="text-[11px] tracking-[0.2em] font-semibold">FOR SCHOOLS</span>
+      <section className="bg-stone-900 text-white relative overflow-hidden pt-12">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-10 lg:py-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20">
+            <Sparkles className="w-3.5 h-3.5 text-[#F48B9B]" />
+            <span className="text-[10px] tracking-[0.2em] font-bold uppercase">FOR SCHOOLS</span>
           </div>
-          <h1 className="mt-6 font-serif text-[40px] lg:text-[64px] font-semibold leading-[0.95] max-w-[1100px]">
-            One platform to <span className="italic">run, fill &</span> grow your school.
+          <h1 className="mt-5 font-serif text-[40px] lg:text-[56px] font-bold leading-[1.1] max-w-[900px]">
+            One platform to <span className="italic text-[#F48B9B]">run, fill &</span> grow your school.
           </h1>
-          <p className="mt-6 text-[17px] text-stone-300 max-w-[680px] leading-relaxed">
+          <p className="mt-5 text-[16px] text-stone-400 max-w-[640px] leading-relaxed">
             ERP + marketplace listing + marketing analytics + lead pipeline – built specifically for Indian K-12 schools.
           </p>
-          <button onClick={() => openModal('list')} className="mt-8 inline-flex items-center gap-2 bg-white text-[#b1040e] px-8 py-4 rounded-xl font-medium hover:bg-stone-100 transition-colors">
+          <button onClick={() => openModal('list')} className="mt-7 inline-flex items-center gap-3 bg-white text-stone-900 px-8 py-4 rounded-xl font-bold text-[16px] hover:bg-[#b1040e] hover:text-white transition-all shadow-lg shadow-black/20">
             List your school free <ArrowRight className="w-4 h-4" />
           </button>
         </div>
