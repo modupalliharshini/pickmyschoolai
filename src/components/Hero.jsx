@@ -71,7 +71,8 @@ const Hero = () => {
       state: { 
         city, 
         board: board === 'CBSE / ICSE' ? 'CBSE' : board, 
-        maxFee: selectedBudget ? selectedBudget.value : 15 
+        maxFee: selectedBudget ? selectedBudget.value : 15,
+        query: keyword
       } 
     });
   };
@@ -109,6 +110,7 @@ const Hero = () => {
   );
 
   const [schoolIndex, setSchoolIndex] = useState(0);
+  const [keyword, setKeyword] = useState('');
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
@@ -157,13 +159,13 @@ const Hero = () => {
               Tell us your child's age, your locality and budget. Our AI matches them with schools that actually fit.
             </p>
 
-            {/* Search Bar */}
+            {/* Filter Bar */}
             <div 
-              className="mt-8 bg-white rounded-[24px] border border-[#F3E8E6] shadow-[0_15px_40px_-12px_rgba(124,26,26,0.06)] flex flex-col md:flex-row items-stretch p-1 w-full overflow-hidden"
+              className="mt-8 bg-white rounded-[24px] border border-[#F3E8E6] shadow-[0_15px_40px_-12px_rgba(124,26,26,0.06)] flex items-stretch p-1 w-full overflow-hidden"
               onClick={() => setActiveDropdown(null)}
             >
               <div className="flex-1 grid grid-cols-2 md:grid-cols-4">
-                <div className="px-4 py-3 border-r border-b md:border-b-0 border-stone-100">
+                <div className="px-4 py-3 border-r border-stone-100">
                   <Dropdown 
                     label="CITY" 
                     value={city} 
@@ -171,10 +173,9 @@ const Hero = () => {
                     onSelect={(val) => setCity(val)}
                     isOpen={activeDropdown === 'CITY'}
                     onClose={() => setActiveDropdown(null)}
-                    onClick={(e) => { e.stopPropagation(); setActiveDropdown('CITY'); }}
                   />
                 </div>
-                <div className="px-4 py-3 border-b md:border-b-0 md:border-r border-stone-100">
+                <div className="px-4 py-3 border-r border-stone-100">
                   <Dropdown 
                     label="GRADE" 
                     value={grade} 
@@ -184,7 +185,7 @@ const Hero = () => {
                     onClose={() => setActiveDropdown(null)}
                   />
                 </div>
-                <div className="px-4 py-3 border-r border-b md:border-b-0 md:border-r border-stone-100">
+                <div className="px-4 py-3 border-r border-stone-100">
                   <Dropdown 
                     label="BOARD" 
                     value={board} 
@@ -194,7 +195,7 @@ const Hero = () => {
                     onClose={() => setActiveDropdown(null)}
                   />
                 </div>
-                <div className="px-4 py-3 border-b md:border-b-0 border-stone-100">
+                <div className="px-4 py-3">
                   <Dropdown 
                     label="BUDGET" 
                     value={budget} 
@@ -207,9 +208,30 @@ const Hero = () => {
               </div>
               <button 
                 onClick={handleSearch}
-                className="bg-[#b1040e] hover:bg-[#651414] text-white px-10 py-4 rounded-[18px] font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] text-[15px] mt-1 md:mt-0"
+                className="bg-[#b1040e] hover:bg-[#651414] text-white w-14 md:w-16 rounded-[18px] flex items-center justify-center transition-all active:scale-[0.98]"
               >
-                Search <Search className="w-4 h-4" />
+                <Search className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Keyword Search Bar */}
+            <div className="mt-4 relative group">
+              <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+                <Search className="w-5 h-5 text-stone-400 group-focus-within:text-[#b1040e] transition-colors" />
+              </div>
+              <input 
+                type="text"
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                placeholder='Search "schools in Miyapur" or "schools near me"'
+                className="w-full bg-white border border-[#F3E8E6] rounded-[24px] py-5 pl-14 pr-32 text-[16px] text-stone-800 placeholder-stone-400 focus:outline-none focus:border-[#b1040e] focus:ring-4 focus:ring-[#b1040e]/5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] transition-all"
+              />
+              <button 
+                onClick={handleSearch}
+                className="absolute right-2 top-2 bottom-2 bg-stone-900 hover:bg-stone-800 text-white px-8 rounded-[18px] font-bold text-[14px] transition-all"
+              >
+                Search
               </button>
             </div>
 
