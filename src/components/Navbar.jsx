@@ -9,7 +9,7 @@ const navItems = [
   { label: 'AI Match', to: '/ai-match' },
   { label: 'Compare', to: '/compare' },
   { label: 'For schools', to: '/for-schools' },
-  { label: 'Find teacher', to: '/find-teacher' },
+  { label: 'Pick teacher', to: '/find-teacher' },
 ];
 
 const Navbar = () => {

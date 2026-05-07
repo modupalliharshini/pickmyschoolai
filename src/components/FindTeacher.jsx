@@ -38,7 +38,7 @@ const FindTeacher = () => {
             </div>
 
             <Link to="/find-teacher" className="mt-12 inline-flex items-center gap-2 bg-[#b1040e] hover:bg-[#651414] text-white px-10 py-5 rounded-[24px] font-bold text-[17px] transition-all duration-200">
-              Browse teachers <ArrowRight className="w-5 h-5" />
+              Pick your teacher <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
@@ -46,12 +46,12 @@ const FindTeacher = () => {
             <div className="relative z-10 grid grid-cols-2 gap-4">
                {/* Mock Teacher Cards */}
                <div className="space-y-4 pt-12">
-                  <TeacherMiniCard name="Anjali S." sub="Mathematics" rate="4.9" img="bg-blue-100" />
-                  <TeacherMiniCard name="Rahul V." sub="Physics" rate="4.8" img="bg-amber-100" />
+                  <TeacherMiniCard name="Ajay M." sub="Mathematics" rate="4.9" img="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200" />
+                  <TeacherMiniCard name="Paandu" sub="Physics" rate="4.8" img="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200" />
                </div>
                <div className="space-y-4">
-                  <TeacherMiniCard name="Priya N." sub="English" rate="4.9" img="bg-rose-100" />
-                  <TeacherMiniCard name="Suresh K." sub="Chemistry" rate="4.9" img="bg-emerald-100" />
+                  <TeacherMiniCard name="Lokesh" sub="English" rate="4.9" img="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200" />
+                  <TeacherMiniCard name="Rajesh" sub="Chemistry" rate="4.9" img="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200" />
                </div>
             </div>
             
@@ -65,9 +65,9 @@ const FindTeacher = () => {
 };
 
 const TeacherMiniCard = ({ name, sub, rate, img }) => (
-  <div className="bg-white p-6 rounded-[32px] border border-stone-100 shadow-sm hover:shadow-xl transition-shadow duration-300">
-    <div className={`w-14 h-14 rounded-2xl ${img} flex items-center justify-center text-stone-900 font-bold mb-4`}>
-       {name[0]}
+  <div className="bg-white p-6 rounded-[32px] border border-stone-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group">
+    <div className="w-16 h-16 rounded-full bg-white border border-stone-100 shadow-sm flex items-center justify-center p-0.5 mb-4 shrink-0 overflow-hidden">
+       <img src={img} alt={name} className="w-full h-full rounded-full object-cover object-center group-hover:scale-110 transition-transform duration-500" />
     </div>
     <div className="flex items-center gap-1 mb-1">
       <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />

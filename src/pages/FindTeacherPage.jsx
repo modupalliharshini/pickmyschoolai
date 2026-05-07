@@ -123,7 +123,15 @@ const FindTeacherPage = () => {
               <div key={t.id} className="bg-white border border-[#F3E8E6] rounded-[24px] p-3 sm:p-6 hover:shadow-[0_15px_35px_-12px_rgba(124,26,26,0.12)] transition-all duration-300 group flex flex-col">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#b1040e] text-white font-serif font-bold flex items-center justify-center text-base sm:text-lg shrink-0">{initials(t.name)}</div>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white border border-stone-100 flex items-center justify-center p-0.5 shadow-sm shrink-0">
+                      {t.image ? (
+                        <img src={t.image} alt={t.name} className="w-full h-full rounded-full object-cover object-center group-hover:scale-110 transition-transform duration-500" />
+                      ) : (
+                        <div className="w-full h-full rounded-full bg-[#b1040e] text-white font-serif font-bold flex items-center justify-center text-base sm:text-lg">
+                          {initials(t.name)}
+                        </div>
+                      )}
+                    </div>
                     <div className="min-w-0">
                       <h3 className="font-serif text-[14px] sm:text-[18px] font-bold text-stone-900 group-hover:text-[#b1040e] transition-colors truncate">{t.name}</h3>
                       <div className="flex items-center gap-1.5 text-[10px] sm:text-[12px] text-stone-900 font-bold mt-0.5">
