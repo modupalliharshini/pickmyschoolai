@@ -15,6 +15,7 @@ import FindTeacherPage from './pages/FindTeacherPage';
 import TeacherProfilePage from './pages/TeacherProfilePage';
 import SchoolDetailPage from './pages/SchoolDetailPage';
 import BranchesPage from './pages/BranchesPage';
+import SchoolOnboardingPage from './pages/SchoolOnboardingPage';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/ai-match" element={<AiMatchPage />} />
               <Route path="/compare" element={<ComparePage />} />
               <Route path="/for-schools" element={<ForSchoolsPage />} />
+              <Route path="/list-school" element={<SchoolOnboardingPage />} />
               <Route path="/find-teacher" element={<FindTeacherPage />} />
               <Route path="/teacher/:id" element={<TeacherProfilePage />} />
               <Route path="/school/:id" element={<SchoolDetailPage />} />

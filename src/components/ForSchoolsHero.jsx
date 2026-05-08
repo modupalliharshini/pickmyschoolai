@@ -17,7 +17,7 @@ const ForSchoolsHero = () => {
                 Complete ERP — admissions, students, fees, attendance, communication — plus marketing analytics, lead pipeline and ad performance. Already trusted by 1,200+ schools.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-4">
-                <Link to="/for-schools" className="bg-white text-[#b1040e] px-8 py-4 rounded-[18px] font-bold text-[16px] hover:scale-[1.02] transition-all text-center shadow-xl shadow-black/20">
+                <Link to="/list-school" className="bg-white text-[#b1040e] px-8 py-4 rounded-[18px] font-bold text-[16px] hover:scale-[1.02] transition-all text-center shadow-xl shadow-black/20">
                   List your school free
                 </Link>
                 <button className="bg-transparent border border-white/20 text-white px-8 py-4 rounded-[18px] font-bold text-[16px] hover:bg-white/5 transition-all">

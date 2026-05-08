@@ -48,7 +48,7 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center gap-6">
           <button onClick={() => openModal('signin')} className="text-[14px] text-white/80 font-bold hover:text-white transition-colors">Sign in</button>
-          <Link to="/for-schools" className="bg-white text-[#b1040e] hover:bg-stone-50 px-6 py-2.5 rounded-xl text-[14px] font-bold shadow-sm transition-all duration-200 active:scale-95">List your school</Link>
+          <Link to="/list-school" className="bg-white text-[#b1040e] hover:bg-stone-50 px-6 py-2.5 rounded-xl text-[14px] font-bold shadow-sm transition-all duration-200 active:scale-95">List your school</Link>
         </div>
         <button className="lg:hidden p-2 text-white" onClick={() => setMobileOpen(true)} aria-label="Toggle menu">
           <Menu className="w-6 h-6" />
@@ -102,12 +102,13 @@ const Navbar = () => {
                 >
                   Sign in
                 </button>
-                <button
-                  onClick={() => { setMobileOpen(false); openModal('list'); }}
-                  className="w-full py-4 text-[16px] font-bold text-white bg-[#b1040e] rounded-2xl shadow-lg shadow-[#b1040e]/20 active:scale-95 transition-all"
+                <Link
+                  to="/list-school"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full py-4 text-[16px] font-bold text-white bg-[#b1040e] rounded-2xl shadow-lg shadow-[#b1040e]/20 active:scale-95 transition-all text-center"
                 >
                   List your school
-                </button>
+                </Link>
               </div>
             </div>
           </div>

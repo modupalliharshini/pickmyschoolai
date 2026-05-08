@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Sparkles } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
@@ -18,9 +19,9 @@ const ForSchoolsPage = () => {
           <p className="mt-5 text-[16px] text-stone-400 max-w-[640px] leading-relaxed">
             ERP + marketplace listing + marketing analytics + lead pipeline – built specifically for Indian K-12 schools.
           </p>
-          <button onClick={() => openModal('list')} className="mt-7 inline-flex items-center gap-3 bg-white text-stone-900 px-8 py-4 rounded-xl font-bold text-[16px] hover:bg-[#b1040e] hover:text-white transition-all shadow-lg shadow-black/20">
+          <Link to="/list-school" className="mt-7 inline-flex items-center gap-3 bg-white text-stone-900 px-8 py-4 rounded-xl font-bold text-[16px] hover:bg-[#b1040e] hover:text-white transition-all shadow-lg shadow-black/20">
             List your school free <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </section>
 
