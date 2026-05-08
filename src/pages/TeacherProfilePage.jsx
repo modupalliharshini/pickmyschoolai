@@ -45,8 +45,14 @@ const TeacherProfilePage = () => {
             {/* Hero Section */}
             <div className="bg-white rounded-[40px] p-8 lg:p-12 shadow-sm border border-stone-100">
               <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-[32px] bg-[#b1040e] text-white flex items-center justify-center text-3xl lg:text-4xl font-serif font-bold shadow-xl shadow-[#b1040e]/20">
-                  {initials}
+                <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-[32px] bg-white border border-stone-100 flex items-center justify-center p-1 shadow-xl shadow-stone-200/50 overflow-hidden shrink-0">
+                  {teacher.image ? (
+                    <img src={teacher.image} alt={teacher.name} className="w-full h-full rounded-[28px] object-cover object-center" />
+                  ) : (
+                    <div className="w-full h-full rounded-[28px] bg-[#b1040e] text-white flex items-center justify-center text-3xl lg:text-4xl font-serif font-bold">
+                      {initials}
+                    </div>
+                  )}
                 </div>
                 <div>
                   <div className="flex items-center gap-3 mb-2">
