@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Sparkles, Star } from 'lucide-react';
 import SchoolIllustration from '../components/SchoolIllustration';
-import { schools } from '../mock';
+import { getAiMatches } from '../services/api';
+import { toast } from 'sonner';
 
 const steps = [
   { key: 'city', title: 'Where do you live?', sub: 'We\'ll show you schools nearby.', type: 'choice', options: ['Hyderabad', 'Bengaluru', 'Mumbai', 'Delhi NCR', 'Chennai', 'Pune'] },
@@ -15,6 +16,8 @@ const AiMatchPage = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [ranked, setRanked] = useState([]);
 
   const current = steps[step];
   const choose = (opt) => {
@@ -32,8 +35,31 @@ const AiMatchPage = () => {
     return Array.isArray(v) ? v.includes(opt) : v === opt;
   };
 
+  const handleFinish = async () => {
+    setLoading(true);
+    try {
+      // Map frontend keys to backend prefs
+      const prefs = {
+        city: answers.city,
+        grade: answers.grade,
+        board: Array.isArray(answers.board) ? answers.board : [answers.board],
+        budget: answers.budget,
+        priority: Array.isArray(answers.priority) ? answers.priority : [answers.priority]
+      };
+      
+      const results = await getAiMatches(prefs);
+      setRanked(results);
+      setDone(true);
+    } catch (err) {
+      toast.error("Failed to get AI matches. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (done) {
-    const ranked = [...schools].sort((a, b) => b.score - a.score).slice(0, 6);
+    // const ranked = [...schools].sort((a, b) => b.score - a.score).slice(0, 6);
     return (
       <section className="bg-[#FBF7F0] min-h-screen pt-24 pb-16">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
@@ -98,8 +124,8 @@ const AiMatchPage = () => {
                 Next <ArrowRight className="w-4 h-4" />
               </button>
             ) : (
-              <button onClick={() => setDone(true)} className="inline-flex items-center gap-2 bg-[#b1040e] hover:bg-[#651414] text-white px-6 py-3 rounded-xl font-medium transition-colors">
-                Find my matches <Sparkles className="w-4 h-4" />
+              <button disabled={loading} onClick={handleFinish} className="inline-flex items-center gap-2 bg-[#b1040e] hover:bg-[#651414] text-white px-6 py-3 rounded-xl font-medium transition-colors disabled:opacity-50">
+                {loading ? 'Finding...' : 'Find my matches'} <Sparkles className="w-4 h-4" />
               </button>
             )}
           </div>
