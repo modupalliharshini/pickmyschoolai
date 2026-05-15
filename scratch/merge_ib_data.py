@@ -1,0 +1,82 @@
+import json
+
+existing_schools = [
+  {"name": "Victorious Kidss Educares", "city": "Pune", "state": "Maharashtra", "website": "https://www.victoriouskidsseducares.org"},
+  {"name": "Akal Academy Baru Sahib", "city": "Baru Sahib (Distt. Sirmore)", "state": "Himachal Pradesh", "website": "https://www.akalacademy.org"},
+  {"name": "Genesis Global School", "city": "Noida", "state": "Uttar Pradesh", "website": "https://www.genesisglobalschool.edu.in"},
+  {"name": "Sanjay Ghodawat International School", "city": "Kolhapur", "state": "Maharashtra", "website": "http://www.sgis.in"},
+  {"name": "Scottish High International School", "city": "Gurugram", "state": "Haryana", "website": "https://www.scottishhigh.com"},
+  {"name": "Shiv Nadar School Chennai", "city": "Chennai", "state": "Tamil Nadu", "website": "https://shivnadarschool.edu.in/chennai/"},
+  {"name": "Shiv Nadar School Faridabad", "city": "Faridabad", "state": "Haryana", "website": "https://shivnadarschool.edu.in/faridabad/"},
+  {"name": "Shiv Nadar School Gurgaon", "city": "Gurgaon", "state": "Haryana", "website": "https://shivnadarschool.edu.in/gurgaon/"},
+  {"name": "Shiv Nadar School Noida", "city": "Noida", "state": "Uttar Pradesh", "website": "https://shivnadarschool.edu.in/noida/"},
+  {"name": "Stonehill International School", "city": "Bengaluru", "state": "Karnataka", "website": "https://www.stonehill.in"},
+  {"name": "The Mahindra United World College of India", "city": "Pune", "state": "Maharashtra", "website": "https://www.uwccommonline.org"},
+  {"name": "The Shri Ram Academy, Hyderabad", "city": "Hyderabad", "state": "Telangana", "website": "https://tsrahyderabad.com"}
+]
+
+new_schools = [
+  {"name": "Ascend International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Aspee Nutan Academy", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "B.D. Somani International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Bombay International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Bunts Sanghas S M Shetty Intl School and Junior College", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "C.P. Goenka International School, Oshiwara", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Chatrabhuj Narsee School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Children's Academy International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "D Y Patil International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "D Y Patil International School, Nerul", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Dhirubhai Ambani International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Don Bosco International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Dr. Pillai Global Academy", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Dr. Pillai Global Academy, New Panvel", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "DSB International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Ecole Mondiale World School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Edubridge International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Fazlani L'Académie Globale", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "G.D. Somani Memorial School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Garodia International Centre for Learning Mumbai", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Goldcrest High, Vashi", "city": "Navi Mumbai", "state": "Maharashtra"},
+  {"name": "Hill Spring International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Jamnabai Narsee International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "JBCN International School, Borivali", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "JBCN International School, Parel", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "JBCN International School, Oshiwara", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Kohinoor International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Mount Litera School International", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "NES International School Mumbai", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Oberoi International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Oberoi International School - JVLR Campus", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Podar International School (IB), Santacruz", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Ryan Global School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Ryan International School, Malad", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Singapore International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "SVKM JV Parekh International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Thakur International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Universal High School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Utpal Shanghvi Global School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Vani Vidyalaya", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Vibgyor High, Goregaon", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Witty International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Aditya Birla World Academy", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Ajmera Global School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "American School of Bombay", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Billabong High International School, Santacruz", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Bombay Cambridge International School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Cathedral and John Connon School (The)", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Gopi Birla Memorial School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Jasudben M.L. School", "city": "Mumbai", "state": "Maharashtra"},
+  {"name": "Mainadevi Bajaj International School", "city": "Mumbai", "state": "Maharashtra"}
+]
+
+# Merge and remove duplicates by name
+all_schools = {s['name']: s for s in existing_schools}
+for s in new_schools:
+    if s['name'] not in all_schools:
+        all_schools[s['name']] = s
+    else:
+        # Update with more info if available
+        all_schools[s['name']].update(s)
+
+with open('/Users/macbook/Desktop/thepatternscompany/pickmyschoolai/data/ib_schools.json', 'w') as f:
+    json.dump(list(all_schools.values()), f, indent=2)
