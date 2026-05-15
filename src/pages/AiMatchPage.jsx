@@ -70,14 +70,14 @@ const AiMatchPage = () => {
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {ranked.map((s) => (
               <div key={s.id} className="bg-white rounded-2xl border border-stone-200 overflow-hidden">
-                <div className="aspect-[4/3]"><SchoolIllustration shade={s.shade} /></div>
+                <div className="aspect-[4/3]"><SchoolIllustration shade={s.shade || 'bg-stone-50'} /></div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 text-[#b1040e] font-semibold text-[13px]"><Star className="w-3.5 h-3.5 fill-[#b1040e]" /> MATCH {s.score}%</div>
                   <h3 className="font-serif text-[19px] font-semibold mt-2 text-stone-900">{s.name}</h3>
-                  <p className="text-stone-500 text-[13px] mt-1">{s.location}</p>
+                  <p className="text-stone-500 text-[13px] mt-1">{s.address}, {s.city}</p>
                   <div className="mt-3 flex items-center justify-between">
-                    <span className="text-[13px] text-stone-900 font-semibold">{s.fee}/yr</span>
-                    <a href="#apply" className="text-[#b1040e] font-medium text-[13px] hover:underline">Apply →</a>
+                    <span className="text-[13px] text-stone-900 font-semibold">{s.fee_range || 'N/A'}/yr</span>
+                    <a href={`/school/${s.id}`} className="text-[#b1040e] font-medium text-[13px] hover:underline">Apply →</a>
                   </div>
                 </div>
               </div>
