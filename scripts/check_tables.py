@@ -29,7 +29,15 @@ try:
     
     print("Tables in database:")
     for table in tables:
-        print(f"- {table[0]}")
+        cur.execute(f"SELECT COUNT(*) FROM {table[0]}")
+        count = cur.fetchone()[0]
+        print(f"- {table[0]}: {count} records")
+    
+    print("\nSchools by Board:")
+    cur.execute("SELECT board, COUNT(*) FROM schools GROUP BY board ORDER BY COUNT(*) DESC")
+    boards = cur.fetchall()
+    for board, count in boards:
+        print(f"- {board}: {count} schools")
     
 except Exception as e:
     print(f"Error: {e}")
