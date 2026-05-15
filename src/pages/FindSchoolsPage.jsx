@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Search, SlidersHorizontal, Heart, Star, ChevronDown, X } from 'lucide-react';
-import { schools } from '../mock';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SchoolCard from '../components/SchoolCard';
+import { fetchSchools } from '../services/api';
 
 const CITIES = ['All', 'Hyderabad', 'Bengaluru', 'Mumbai', 'Delhi NCR', 'Chennai', 'Pune', 'Kolkata'];
 const BOARDS = ['All', 'CBSE', 'ICSE', 'IB', 'State', 'Pre-school'];
@@ -17,25 +17,36 @@ const FindSchoolsPage = () => {
   const [maxFee, setMaxFee] = useState(initialFilters.maxFee || 15);
   const [query, setQuery] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [allSchools, setAllSchools] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const extended = useMemo(() => {
-    const base = [...schools];
-    for (let i = 0; i < 18; i++) {
-      const s = schools[i % schools.length];
-      base.push({ ...s, id: 100 + i, name: s.name + (i > 0 ? ' Campus ' + (i + 1) : '') });
-    }
-    return base;
-  }, []);
+  React.useEffect(() => {
+    const load = async () => {
+      try {
+        const data = await fetchSchools(city === 'All' ? null : city);
+        setAllSchools(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, [city]);
 
-  const feeNum = (fee) => parseFloat(fee.replace(/[^0-9.]/g, ''));
+  const feeNum = (fee) => {
+    if (!fee) return 0;
+    return parseFloat(fee.replace(/[^0-9.]/g, '')) || 0;
+  };
 
-  const filtered = extended.filter((s) => {
-    if (city !== 'All' && !s.location.includes(city)) return false;
-    if (board !== 'All' && !s.boards.some((b) => b.toLowerCase().includes(board.toLowerCase()))) return false;
-    if (feeNum(s.fee) > maxFee) return false;
-    if (query && !s.name.toLowerCase().includes(query.toLowerCase()) && !s.location.toLowerCase().includes(query.toLowerCase())) return false;
-    return true;
-  });
+  const filtered = useMemo(() => {
+    return allSchools.filter((s) => {
+      if (board !== 'All' && s.board !== board) return false;
+      if (maxFee < 15 && feeNum(s.fee_range) > maxFee) return false;
+      if (query && !s.name.toLowerCase().includes(query.toLowerCase()) && !s.address.toLowerCase().includes(query.toLowerCase())) return false;
+      return true;
+    });
+  }, [allSchools, board, maxFee, query]);
 
   const FilterContent = ({ mobile = false }) => (
     <div className="flex flex-col h-full">
@@ -164,8 +175,13 @@ const FindSchoolsPage = () => {
 
           {/* Grid */}
           <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-5 items-start">
-            {filtered.map((s) => <SchoolCard key={s.id} s={s} />)}
-            {filtered.length === 0 && (
+            {loading ? (
+              <div className="col-span-full text-center py-24">
+                <div className="animate-spin w-8 h-8 border-4 border-[#b1040e] border-t-transparent rounded-full mx-auto mb-4" />
+                <p className="text-stone-400 font-medium">Loading schools...</p>
+              </div>
+            ) : filtered.map((s) => <SchoolCard key={s.id} s={{...s, location: `${s.address}, ${s.city}`, fee: s.fee_range}} />)}
+            {!loading && filtered.length === 0 && (
               <div className="col-span-full text-center py-24 bg-[#FBF7F0] rounded-[32px] border border-dashed border-stone-200">
                 <p className="text-stone-400 font-medium text-lg">No schools match your filters.</p>
               </div>

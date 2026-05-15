@@ -25,7 +25,8 @@ def simulate_udise_data():
             "medium_of_instruction": ["English", "Hindi", "Telugu"],
             "fee_range": "₹1L - ₹2L",
             "is_residential": False,
-            "gender_type": "Co-ed"
+            "gender_type": "Co-ed",
+            "tags": ["Academics", "STEM/Robotics", "Discipline"]
         },
         {
             "udise_code": "360101002",
@@ -43,25 +44,65 @@ def simulate_udise_data():
             "medium_of_instruction": ["English"],
             "fee_range": "₹4L - ₹7L",
             "is_residential": True,
-            "gender_type": "Co-ed"
+            "gender_type": "Co-ed",
+            "tags": ["Sports", "Arts & music", "STEM/Robotics"]
         },
         {
-            "udise_code": "360101003",
-            "name": "Delhi Public School",
-            "address": "Nacharam",
-            "city": "Hyderabad",
-            "state": "Telangana",
-            "pincode": "500076",
-            "latitude": 17.4258,
-            "longitude": 78.5582,
+            "udise_code": "290101001",
+            "name": "Greenwood High",
+            "address": "Sarjapur Road",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "pincode": "560083",
+            "latitude": 12.8942,
+            "longitude": 77.7241,
             "classification": "Private",
-            "category": "Secondary",
+            "category": "Higher Secondary",
+            "management": "Private Unaided",
+            "board": "ICSE",
+            "medium_of_instruction": ["English"],
+            "fee_range": "₹2L - ₹4L",
+            "is_residential": False,
+            "gender_type": "Co-ed",
+            "tags": ["Academics", "Sports", "Mental wellbeing"]
+        },
+        {
+            "udise_code": "270101001",
+            "name": "Dhirubhai Ambani International",
+            "address": "Bandra Kurla Complex",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400098",
+            "latitude": 19.0667,
+            "longitude": 72.8667,
+            "classification": "Private",
+            "category": "Higher Secondary",
+            "management": "Private Unaided",
+            "board": "IB",
+            "medium_of_instruction": ["English"],
+            "fee_range": "₹7L+",
+            "is_residential": False,
+            "gender_type": "Co-ed",
+            "tags": ["Academics", "STEM/Robotics", "Arts & music"]
+        },
+        {
+            "udise_code": "070101001",
+            "name": "Modern School",
+            "address": "Barakhamba Road",
+            "city": "Delhi NCR",
+            "state": "Delhi",
+            "pincode": "110001",
+            "latitude": 28.6297,
+            "longitude": 77.2274,
+            "classification": "Private",
+            "category": "Higher Secondary",
             "management": "Private Unaided",
             "board": "CBSE",
             "medium_of_instruction": ["English", "Hindi"],
             "fee_range": "₹1L - ₹2L",
             "is_residential": False,
-            "gender_type": "Co-ed"
+            "gender_type": "Co-ed",
+            "tags": ["Academics", "Discipline", "Arts & music"]
         }
     ]
 

@@ -22,10 +22,10 @@ serve(async (req) => {
     const city = url.searchParams.get('city')
 
     if (schoolId) {
-      // Get single school detail
+      // Get single school detail (excluding binary location)
       const { data: school, error } = await supabaseClient
         .from('schools')
-        .select('*, school_facilities(*)')
+        .select('id, udise_code, name, address, city, state, pincode, latitude, longitude, classification, category, management, board, medium_of_instruction, fee_range, is_residential, gender_type, rating, tags, school_facilities(*)')
         .eq('id', schoolId)
         .single()
 
@@ -36,8 +36,8 @@ serve(async (req) => {
         status: 200,
       })
     } else {
-      // List schools
-      let query = supabaseClient.from('schools').select('*')
+      // List schools (excluding binary location)
+      let query = supabaseClient.from('schools').select('id, udise_code, name, address, city, state, pincode, latitude, longitude, classification, category, management, board, medium_of_instruction, fee_range, is_residential, gender_type, rating, tags')
       if (city) {
         query = query.eq('city', city)
       }

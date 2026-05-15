@@ -1,12 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { schools } from '../mock';
+import { fetchSchools } from '../services/api';
 import SchoolCard from './SchoolCard';
 
 const BOARDS = ['All schools', 'CBSE', 'ICSE', 'IB', 'State board', 'Pre-school', 'Boarding', 'International'];
 
 const TopPicks = () => {
   const [activeBoard, setActiveBoard] = React.useState('All schools');
+  const [schoolsList, setSchoolsList] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const load = async () => {
+      try {
+        const data = await fetchSchools('Hyderabad'); // Defaulting to Hyderabad for Top Picks
+        setSchoolsList(data.slice(0, 8));
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
 
   return (
     <section id="top-picks" className="pt-8 pb-16 bg-white">
@@ -37,9 +53,13 @@ const TopPicks = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-x-6 md:gap-y-10">
-          {[...schools, ...schools].slice(0, 8).map((s, idx) => (
-            <SchoolCard key={`${s.id}-${idx}`} s={s} />
-          ))}
+          {loading ? (
+            [1, 2, 3, 4].map((i) => <div key={i} className="aspect-[4/5] bg-stone-50 rounded-[32px] animate-pulse" />)
+          ) : (
+            schoolsList.map((s) => (
+              <SchoolCard key={s.id} s={{...s, location: `${s.address}, ${s.city}`, fee: s.fee_range}} />
+            ))
+          )}
         </div>
 
         <div className="mt-12 text-center md:hidden">

@@ -49,9 +49,10 @@ serve(async (req) => {
       }
 
       // Priority Match
-      // Mocking some tags based on categories if tags are missing in DB
-      const mockTags = school.category === 'Higher Secondary' ? ['STEM', 'Academics'] : ['Sports', 'Arts'];
-      const schoolTags = school.tags || mockTags;
+      // Use real tags from DB if available, else fallback to category-based mock tags
+      const schoolTags = (school.tags && school.tags.length > 0) 
+        ? school.tags 
+        : (school.category === 'Higher Secondary' ? ['STEM', 'Academics'] : ['Sports', 'Arts']);
       
       if (priority && priority.length > 0) {
         const matches = priority.filter(p => schoolTags.includes(p))
