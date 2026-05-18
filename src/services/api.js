@@ -1,10 +1,12 @@
 const SUPABASE_PROJECT_URL = 'https://szcyjmfnmwshikszunpg.supabase.co';
 const API_BASE_URL = `${SUPABASE_PROJECT_URL}/functions/v1`;
 
-// Note: In a real app, you would include the Anon Key in the headers
+// Note: Supabase Anon keys are public and safe to be exposed in frontend code
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6Y3lqbWZubXdzaGlrc3p1bnBnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyMjEwNTMsImV4cCI6MjA5Mzc5NzA1M30.mBnGJw9Kssv4eJDylIIACR9rwxIfPxPs_8Oce-qpjwo';
+
 const getHeaders = () => ({
   'Content-Type': 'application/json',
-  'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY || ''}`
+  'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
 });
 
 export const fetchSchools = async (city) => {
